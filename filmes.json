@@ -11,3 +11,17 @@
   { "titulo": "Shang-Chi e a Lenda dos Dez Anéis", "genero": "Ação", "poster": "https://upload.wikimedia.org/wikipedia/pt/e/e3/Shang-Chi_poster.jpg", "trailer": "https://www.youtube.com/watch?v=8YjFbMbfXaQ" },
   { "titulo": "Encanto", "genero": "Infantil", "poster": "https://upload.wikimedia.org/wikipedia/pt/0/07/Encanto.jpg", "trailer": "https://www.youtube.com/watch?v=CaimKeDcudo" }
 ]
+[
+  {
+    "titulo": "Vingadores: Ultimato",
+    "genero": "Ação",
+    "poster": "https://upload.wikimedia.org/wikipedia/pt/0/0d/Avengers_Endgame_poster.jpg",
+    "trailer": "https://www.youtube.com/watch?v=TcMBFSGVi1c"
+  },
+  {
+    "titulo": "Novo Filme Exemplo",
+    "genero": "Aventura",
+    "poster": "URL_DO_POSTER_AQUI",
+    "trailer": "URL_DO_TRAILER_AQUI"
+  }
+]
