@@ -18,6 +18,33 @@
       font-size: 2em;
       font-weight: bold;
     }
+    #search-bar {
+      width: 90%;
+      margin: 20px auto;
+      display: block;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: none;
+    }
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .filter-buttons button {
+      padding: 8px 15px;
+      font-size: 0.9em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #e50914;
+      color: #fff;
+    }
+    .filter-buttons button:hover {
+      opacity: 0.8;
+    }
     h2 {
       margin-left: 20px;
     }
@@ -52,43 +79,76 @@
 </head>
 <body>
   <header>TVAFLIX</header>
+  <input type="text" id="search-bar" placeholder="Pesquisar filmes...">
+  <div class="filter-buttons" id="genre-filters"></div>
   <div id="movies-container"></div>
 
   <script>
+    let filmesGlobais = [];
+
+    function renderMovies(filmes) {
+      const container = document.getElementById('movies-container');
+      container.innerHTML = '';
+
+      const generos = {};
+
+      filmes.forEach(filme => {
+        if (!generos[filme.genero]) generos[filme.genero] = [];
+        generos[filme.genero].push(filme);
+      });
+
+      for (const genero in generos) {
+        const sectionTitle = document.createElement('h2');
+        sectionTitle.textContent = genero;
+        container.appendChild(sectionTitle);
+
+        const row = document.createElement('div');
+        row.className = 'movies-row';
+
+        generos[genero].forEach(filme => {
+          const div = document.createElement('div');
+          div.className = 'movie';
+          div.innerHTML = `
+            <img src="${filme.poster}" alt="${filme.titulo}">
+            <h3>${filme.titulo}</h3>
+            <a href="${filme.trailer}" target="_blank">Assistir trailer</a>
+          `;
+          row.appendChild(div);
+        });
+
+        container.appendChild(row);
+      }
+    }
+
+    function createGenreFilters(filmes) {
+      const container = document.getElementById('genre-filters');
+      const generosUnicos = [...new Set(filmes.map(f => f.genero))];
+      const btnAll = document.createElement('button');
+      btnAll.textContent = 'Todos';
+      btnAll.onclick = () => renderMovies(filmesGlobais);
+      container.appendChild(btnAll);
+
+      generosUnicos.forEach(g => {
+        const btn = document.createElement('button');
+        btn.textContent = g;
+        btn.onclick = () => renderMovies(filmesGlobais.filter(f => f.genero === g));
+        container.appendChild(btn);
+      });
+    }
+
+    // Busca por título
+    document.getElementById('search-bar').addEventListener('input', e => {
+      const termo = e.target.value.toLowerCase();
+      renderMovies(filmesGlobais.filter(f => f.titulo.toLowerCase().includes(termo)));
+    });
+
+    // Carrega filmes do JSON
     fetch('filmes.json')
       .then(response => response.json())
       .then(filmes => {
-        const container = document.getElementById('movies-container');
-        const generos = {};
-
-        // Organiza filmes por gênero
-        filmes.forEach(filme => {
-          if (!generos[filme.genero]) generos[filme.genero] = [];
-          generos[filme.genero].push(filme);
-        });
-
-        // Cria seções de cada gênero
-        for (const genero in generos) {
-          const sectionTitle = document.createElement('h2');
-          sectionTitle.textContent = genero;
-          container.appendChild(sectionTitle);
-
-          const row = document.createElement('div');
-          row.className = 'movies-row';
-
-          generos[genero].forEach(filme => {
-            const div = document.createElement('div');
-            div.className = 'movie';
-            div.innerHTML = `
-              <img src="${filme.poster}" alt="${filme.titulo}">
-              <h3>${filme.titulo}</h3>
-              <a href="${filme.trailer}" target="_blank">Assistir trailer</a>
-            `;
-            row.appendChild(div);
-          });
-
-          container.appendChild(row);
-        }
+        filmesGlobais = filmes;
+        createGenreFilters(filmes);
+        renderMovies(filmes);
       });
   </script>
 </body>
