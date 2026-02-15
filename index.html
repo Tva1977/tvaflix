@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -21,19 +21,19 @@
     <div class="container" id="container"></div>
 
     <script>
-        fetch('public/filmes.json')
+        fetch('/filmes.json')
             .then(response => response.json())
             .then(filmes => {
                 const container = document.getElementById('container');
                 filmes.forEach(filme => {
                     const div = document.createElement('div');
                     div.className = 'filme';
-                    div.innerHTML = `
-                        <img src="${filme.poster}" alt="${filme.titulo}">
-                        <h2>${filme.titulo}</h2>
-                        <p>${filme.genero}</p>
-                        <a href="${filme.trailer}" target="_blank">Assistir Trailer</a>
-                    `;
+                    div.innerHTML = 
+                        <img src="" alt="">
+                        <h2></h2>
+                        <p></p>
+                        <a href="" target="_blank">Assistir Trailer</a>
+                    ;
                     container.appendChild(div);
                 });
             })
