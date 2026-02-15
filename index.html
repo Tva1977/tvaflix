@@ -1,106 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TVAFLIX</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: white;
-}
-
-header {
-    background: #000;
-    padding: 15px 30px;
-    font-size: 24px;
-    font-weight: bold;
-    color: red;
-}
-
-.search {
-    margin: 20px;
-}
-
-.search input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-}
-
-.section {
-    margin: 20px;
-}
-
-.movies {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-}
-
-.movie {
-    min-width: 150px;
-    height: 220px;
-    background: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #000;
-    margin-top: 30px;
-    font-size: 14px;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>TVAFLIX</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #e50914;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    h2 {
+      margin-left: 20px;
+    }
+    .movies-row {
+      display: flex;
+      overflow-x: auto;
+      padding: 10px 20px;
+      gap: 15px;
+    }
+    .movie {
+      flex: 0 0 auto;
+      width: 150px;
+      text-align: center;
+    }
+    .movie img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .movie h3 {
+      font-size: 0.9em;
+      margin: 5px 0 0 0;
+    }
+  </style>
 </head>
-
 <body>
+  <header>TVAFLIX</header>
 
-<header>TVAFLIX</header>
+  <h2>Ação</h2>
+  <div class="movies-row">
+    <div class="movie">
+      <img src="https://m.media-amazon.com/images/I/81jU0ZqHECL._AC_SY679_.jpg" alt="Vingadores: Ultimato">
+      <h3>Vingadores: Ultimato</h3>
+    </div>
+    <div class="movie">
+      <img src="https://m.media-amazon.com/images/I/71NruZAb6-L._AC_SY679_.jpg" alt="John Wick 3">
+      <h3>John Wick 3</h3>
+    </div>
+  </div>
 
-<div class="search">
-<input type="text" placeholder="Buscar filmes...">
-</div>
+  <h2>Comédia</h2>
+  <div class="movies-row">
+    <div class="movie">
+      <img src="https://m.media-amazon.com/images/I/81c6z6O+FfL._AC_SY679_.jpg" alt="Deadpool">
+      <h3>Deadpool</h3>
+    </div>
+    <div class="movie">
+      <img src="https://m.media-amazon.com/images/I/71oOR0XQdPL._AC_SY679_.jpg" alt="A Mentira">
+      <h3>A Mentira</h3>
+    </div>
+  </div>
 
-<div class="section">
-<h2>🔥 Em destaque</h2>
-<div class="movies">
-<div class="movie">Filme 1</div>
-<div class="movie">Filme 2</div>
-<div class="movie">Filme 3</div>
-</div>
-</div>
+  <h2>Drama</h2>
+  <div class="movies-row">
+    <div class="movie">
+      <img src="https://m.media-amazon.com/images/I/71w2ER+N2xL._AC_SY679_.jpg" alt="Coringa">
+      <h3>Coringa</h3>
+    </div>
+    <div class="movie">
+      <img src="https://m.media-amazon.com/images/I/71P8R1iHyML._AC_SY679_.jpg" alt="Forrest Gump">
+      <h3>Forrest Gump</h3>
+    </div>
+  </div>
 
-<div class="section">
-<h2>🎬 Ação</h2>
-<div class="movies">
-<div class="movie">Ação 1</div>
-<div class="movie">Ação 2</div>
-<div class="movie">Ação 3</div>
-</div>
-</div>
+  <h2>Suspense</h2>
+  <div class="movies-row">
+    <div class="movie">
+      <img src="https://m.media-amazon.com/images/I/71AI6v+FvSL._AC_SY679_.jpg" alt="A Origem">
+      <h3>A Origem</h3>
+    </div>
+    <div class="movie">
+      <img src="https://m.media-amazon.com/images/I/71U2tzrNVnL._AC_SY679_.jpg" alt="O Silêncio dos Inocentes">
+      <h3>O Silêncio dos Inocentes</h3>
+    </div>
+  </div>
 
-<div class="section">
-<h2>👶 Infantil</h2>
-<div class="movies">
-<div class="movie">Kids 1</div>
-<div class="movie">Kids 2</div>
-<div class="movie">Kids 3</div>
-</div>
-</div>
-
-<footer>
-TVAFLIX — Fundador: Tarcisio Araujo
-</footer>
+  <h2>Infantil</h2>
+  <div class="movies-row">
+    <div class="movie">
+      <img src="https://m.media-amazon.com/images/I/81xXAyj2NxL._AC_SY679_.jpg" alt="Meu Malvado Favorito">
+      <h3>Meu Malvado Favorito</h3>
+    </div>
+    <div class="movie">
+      <img src="https://m.media-amazon.com/images/I/71x8l7X+eAL._AC_SY679_.jpg" alt="Procurando Nemo">
+      <h3>Procurando Nemo</h3>
+    </div>
+  </div>
 
 </body>
 </html>
