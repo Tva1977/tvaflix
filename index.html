@@ -1,46 +1,42 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVAFLIX</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #111; color: #fff; margin: 0; padding: 0; }
-        h1 { text-align: center; margin-top: 20px; }
-        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; gap: 20px; }
-        .filme { background: #222; padding: 10px; border-radius: 8px; width: 200px; text-align: center; }
-        .filme img { width: 100%; border-radius: 5px; }
-        .filme h2 { font-size: 18px; margin: 10px 0 5px 0; }
-        .filme p { margin: 0 0 10px 0; font-size: 14px; }
-        .filme a { display: inline-block; padding: 5px 10px; background: #f00; color: #fff; text-decoration: none; border-radius: 5px; }
-        .filme a:hover { background: #c00; }
-    </style>
+  <meta charset="UTF-8">
+  <title>TVAFLIX</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #141414; color: #fff; margin: 0; padding: 0; }
+    h1 { text-align: center; padding: 20px; }
+    .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
+    .card { background-color: #222; border-radius: 8px; width: 200px; text-align: center; padding: 10px; }
+    .card img { width: 100%; border-radius: 8px; }
+    .card h3 { margin: 10px 0 5px; }
+    .card p { margin: 5px 0; font-size: 14px; color: #aaa; }
+    .card a { display: inline-block; margin-top: 10px; padding: 5px 10px; background-color: #e50914; color: #fff; text-decoration: none; border-radius: 4px; }
+    .card a:hover { background-color: #f40612; }
+  </style>
 </head>
 <body>
-    <h1>TVAFLIX</h1>
-    <div class="container" id="container"></div>
+  <h1>TVAFLIX</h1>
+  <div class="container" id="filmes-container"></div>
 
-    <script>
-        fetch('/filmes.json')
-            .then(response => response.json())
-            .then(filmes => {
-                const container = document.getElementById('container');
-                filmes.forEach(filme => {
-                    const div = document.createElement('div');
-                    div.className = 'filme';
-                    div.innerHTML = 
-                        <img src="\" alt="\">
-                        <h2>\</h2>
-                        <p>\</p>
-                        <a href="\" target="_blank">Assistir Trailer</a>
-                    ;
-                    container.appendChild(div);
-                });
-            })
-            .catch(err => {
-                document.getElementById('container').innerHTML = '<p>Não foi possível carregar os filmes.</p>';
-                console.error(err);
-            });
-    </script>
+  <script>
+    fetch('/filmes.json')
+      .then(response => response.json())
+      .then(filmes => {
+        const container = document.getElementById('filmes-container');
+        filmes.forEach(filme => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = 
+            <img src="" alt="">
+            <h3></h3>
+            <p></p>
+            <a href="" target="_blank">Assistir Trailer</a>
+          ;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => console.error('Erro ao carregar filmes:', error));
+  </script>
 </body>
 </html>
