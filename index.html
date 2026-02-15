@@ -40,70 +40,56 @@
       font-size: 0.9em;
       margin: 5px 0 0 0;
     }
+    .movie a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85em;
+    }
+    .movie a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <header>TVAFLIX</header>
+  <div id="movies-container"></div>
 
-  <h2>Ação</h2>
-  <div class="movies-row">
-    <div class="movie">
-      <img src="https://m.media-amazon.com/images/I/81jU0ZqHECL._AC_SY679_.jpg" alt="Vingadores: Ultimato">
-      <h3>Vingadores: Ultimato</h3>
-    </div>
-    <div class="movie">
-      <img src="https://m.media-amazon.com/images/I/71NruZAb6-L._AC_SY679_.jpg" alt="John Wick 3">
-      <h3>John Wick 3</h3>
-    </div>
-  </div>
+  <script>
+    fetch('filmes.json')
+      .then(response => response.json())
+      .then(filmes => {
+        const container = document.getElementById('movies-container');
+        const generos = {};
 
-  <h2>Comédia</h2>
-  <div class="movies-row">
-    <div class="movie">
-      <img src="https://m.media-amazon.com/images/I/81c6z6O+FfL._AC_SY679_.jpg" alt="Deadpool">
-      <h3>Deadpool</h3>
-    </div>
-    <div class="movie">
-      <img src="https://m.media-amazon.com/images/I/71oOR0XQdPL._AC_SY679_.jpg" alt="A Mentira">
-      <h3>A Mentira</h3>
-    </div>
-  </div>
+        // Organiza filmes por gênero
+        filmes.forEach(filme => {
+          if (!generos[filme.genero]) generos[filme.genero] = [];
+          generos[filme.genero].push(filme);
+        });
 
-  <h2>Drama</h2>
-  <div class="movies-row">
-    <div class="movie">
-      <img src="https://m.media-amazon.com/images/I/71w2ER+N2xL._AC_SY679_.jpg" alt="Coringa">
-      <h3>Coringa</h3>
-    </div>
-    <div class="movie">
-      <img src="https://m.media-amazon.com/images/I/71P8R1iHyML._AC_SY679_.jpg" alt="Forrest Gump">
-      <h3>Forrest Gump</h3>
-    </div>
-  </div>
+        // Cria seções de cada gênero
+        for (const genero in generos) {
+          const sectionTitle = document.createElement('h2');
+          sectionTitle.textContent = genero;
+          container.appendChild(sectionTitle);
 
-  <h2>Suspense</h2>
-  <div class="movies-row">
-    <div class="movie">
-      <img src="https://m.media-amazon.com/images/I/71AI6v+FvSL._AC_SY679_.jpg" alt="A Origem">
-      <h3>A Origem</h3>
-    </div>
-    <div class="movie">
-      <img src="https://m.media-amazon.com/images/I/71U2tzrNVnL._AC_SY679_.jpg" alt="O Silêncio dos Inocentes">
-      <h3>O Silêncio dos Inocentes</h3>
-    </div>
-  </div>
+          const row = document.createElement('div');
+          row.className = 'movies-row';
 
-  <h2>Infantil</h2>
-  <div class="movies-row">
-    <div class="movie">
-      <img src="https://m.media-amazon.com/images/I/81xXAyj2NxL._AC_SY679_.jpg" alt="Meu Malvado Favorito">
-      <h3>Meu Malvado Favorito</h3>
-    </div>
-    <div class="movie">
-      <img src="https://m.media-amazon.com/images/I/71x8l7X+eAL._AC_SY679_.jpg" alt="Procurando Nemo">
-      <h3>Procurando Nemo</h3>
-    </div>
-  </div>
+          generos[genero].forEach(filme => {
+            const div = document.createElement('div');
+            div.className = 'movie';
+            div.innerHTML = `
+              <img src="${filme.poster}" alt="${filme.titulo}">
+              <h3>${filme.titulo}</h3>
+              <a href="${filme.trailer}" target="_blank">Assistir trailer</a>
+            `;
+            row.appendChild(div);
+          });
 
+          container.appendChild(row);
+        }
+      });
+  </script>
 </body>
 </html>

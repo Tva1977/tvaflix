@@ -1,0 +1,62 @@
+[
+  {
+    "titulo": "Vingadores: Ultimato",
+    "genero": "Ação",
+    "poster": "https://m.media-amazon.com/images/I/81jU0ZqHECL._AC_SY679_.jpg",
+    "trailer": "https://www.youtube.com/watch?v=TcMBFSGVi1c"
+  },
+  {
+    "titulo": "John Wick 3",
+    "genero": "Ação",
+    "poster": "https://m.media-amazon.com/images/I/71NruZAb6-L._AC_SY679_.jpg",
+    "trailer": "https://www.youtube.com/watch?v=ZoDi2t4v1IQ"
+  },
+  {
+    "titulo": "Deadpool",
+    "genero": "Comédia",
+    "poster": "https://m.media-amazon.com/images/I/81c6z6O+FfL._AC_SY679_.jpg",
+    "trailer": "https://www.youtube.com/watch?v=ONHBaC-pfsk"
+  },
+  {
+    "titulo": "A Mentira",
+    "genero": "Comédia",
+    "poster": "https://m.media-amazon.com/images/I/71oOR0XQdPL._AC_SY679_.jpg",
+    "trailer": "https://www.youtube.com/watch?v=pDPE_wqTzck"
+  },
+  {
+    "titulo": "Coringa",
+    "genero": "Drama",
+    "poster": "https://m.media-amazon.com/images/I/71w2ER+N2xL._AC_SY679_.jpg",
+    "trailer": "https://www.youtube.com/watch?v=t433PEQGErc"
+  },
+  {
+    "titulo": "Forrest Gump",
+    "genero": "Drama",
+    "poster": "https://m.media-amazon.com/images/I/71P8R1iHyML._AC_SY679_.jpg",
+    "trailer": "https://www.youtube.com/watch?v=bLvqoHBptjg"
+  },
+  {
+    "titulo": "A Origem",
+    "genero": "Suspense",
+    "poster": "https://m.media-amazon.com/images/I/71AI6v+FvSL._AC_SY679_.jpg",
+    "trailer": "https://www.youtube.com/watch?v=YoHD9XEInc0"
+  },
+  {
+    "titulo": "O Silêncio dos Inocentes",
+    "genero": "Suspense",
+    "poster": "https://m.media-amazon.com/images/I/71U2tzrNVnL._AC_SY679_.jpg",
+    "trailer": "https://www.youtube.com/watch?v=W6Mm8Sbe__o"
+  },
+  {
+    "titulo": "Meu Malvado Favorito",
+    "genero": "Infantil",
+    "poster": "https://m.media-amazon.com/images/I/81xXAyj2NxL._AC_SY679_.jpg",
+    "trailer": "https://www.youtube.com/watch?v=1Q8fG0TtVAY"
+  },
+  {
+    "titulo": "Procurando Nemo",
+    "genero": "Infantil",
+    "poster": "https://m.media-amazon.com/images/I/71x8l7X+eAL._AC_SY679_.jpg",
+    "trailer": "https://www.youtube.com/watch?v=wZdpNglLbt8"
+  }
+]
