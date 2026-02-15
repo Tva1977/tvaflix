@@ -21,7 +21,7 @@
     <div class="container" id="container"></div>
 
     <script>
-        fetch('/filmes.json')
+        fetch('filmes.json')
             .then(response => response.json())
             .then(filmes => {
                 const container = document.getElementById('container');
@@ -39,7 +39,7 @@
             })
             .catch(err => {
                 const container = document.getElementById('container');
-                container.innerHTML = '<p>Não foi possível carregar os filmes.</p>';
+                container.innerHTML = '<p>N o foi poss vel carregar os filmes.</p>';
                 console.error(err);
             });
     </script>
