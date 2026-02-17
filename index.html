@@ -6,12 +6,34 @@
 <title>TVAFLIX</title>
 
 <style>
-body { font-family: Arial, sans-serif; background:#111; color:#fff; margin:0; }
+body { font-family: Arial; background:#111; color:#fff; margin:0; }
 h1 { text-align:center; color:#e50914; margin:20px; }
 
-.container { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:20px; }
+#busca {
+    display:block;
+    margin:10px auto;
+    padding:10px;
+    width:80%;
+    max-width:400px;
+    border-radius:6px;
+    border:none;
+}
 
-.filme { background:#222; padding:10px; border-radius:8px; width:200px; text-align:center; }
+.container {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:20px;
+}
+
+.filme {
+    background:#222;
+    padding:10px;
+    border-radius:8px;
+    width:200px;
+    text-align:center;
+}
 
 .filme img { width:100%; border-radius:5px; }
 
@@ -55,6 +77,8 @@ h1 { text-align:center; color:#e50914; margin:20px; }
 
 <h1>TVAFLIX</h1>
 
+<input id="busca" placeholder="🔎 Buscar filme...">
+
 <div class="container" id="container"></div>
 
 <div id="player">
@@ -63,10 +87,11 @@ h1 { text-align:center; color:#e50914; margin:20px; }
 </div>
 
 <script>
+let listaFilmes = [];
+
 function abrirPlayer(url){
-    const video = document.getElementById("video");
     const embed = url.replace("watch?v=", "embed/");
-    video.src = embed;
+    document.getElementById("video").src = embed;
     document.getElementById("player").style.display = "block";
 }
 
@@ -75,14 +100,13 @@ document.getElementById("fechar").onclick = () => {
     document.getElementById("video").src = "";
 };
 
-fetch('/filmes.json')
-.then(r => r.json())
-.then(filmes => {
-    const container = document.getElementById('container');
+function mostrarFilmes(filmes){
+    const container = document.getElementById("container");
+    container.innerHTML = "";
 
     filmes.forEach(filme => {
-        const div = document.createElement('div');
-        div.className = 'filme';
+        const div = document.createElement("div");
+        div.className = "filme";
 
         div.innerHTML = `
             <img src="${filme.poster}">
@@ -94,6 +118,23 @@ fetch('/filmes.json')
 
         container.appendChild(div);
     });
+}
+
+fetch('/filmes.json')
+.then(r => r.json())
+.then(filmes => {
+    listaFilmes = filmes;
+    mostrarFilmes(listaFilmes);
+});
+
+document.getElementById("busca").addEventListener("input", e => {
+    const termo = e.target.value.toLowerCase();
+
+    const filtrados = listaFilmes.filter(f =>
+        f.titulo.toLowerCase().includes(termo)
+    );
+
+    mostrarFilmes(filtrados);
 });
 </script>
 
