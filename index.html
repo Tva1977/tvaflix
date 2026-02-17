@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -6,71 +6,55 @@
 <title>TVAFLIX</title>
 
 <style>
-body { margin:0; font-family:Arial; background:#111; color:#fff; }
+body {
+    margin:0;
+    font-family: Arial;
+    background:#111;
+    color:white;
+}
 
 h1 {
- text-align:center;
- padding:20px;
- margin:0;
- font-size:40px;
- color:#e50914;
-}
-
-.banner {
- position:relative;
- height:60vh;
- background-size:cover;
- background-position:center;
- display:flex;
- align-items:flex-end;
- padding:40px;
-}
-
-.banner-info {
- background:rgba(0,0,0,0.6);
- padding:20px;
- border-radius:8px;
-}
-
-.banner button {
- padding:10px 20px;
- background:#e50914;
- color:#fff;
- border:none;
- border-radius:5px;
- cursor:pointer;
- font-size:16px;
+    text-align:center;
+    padding:20px;
+    background:#000;
+    color:#e50914;
 }
 
 .container {
- display:flex;
- flex-wrap:wrap;
- justify-content:center;
- padding:20px;
- gap:20px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:20px;
 }
 
 .filme {
- background:#222;
- padding:10px;
- border-radius:8px;
- width:200px;
- text-align:center;
+    background:#222;
+    width:200px;
+    border-radius:8px;
+    overflow:hidden;
+    text-align:center;
 }
 
 .filme img {
- width:100%;
- border-radius:5px;
+    width:100%;
+}
+
+.filme h2 {
+    font-size:16px;
+    padding:5px;
 }
 
 .filme a {
- display:inline-block;
- margin-top:5px;
- padding:5px 10px;
- background:#e50914;
- color:#fff;
- text-decoration:none;
- border-radius:5px;
+    display:block;
+    background:#e50914;
+    color:white;
+    text-decoration:none;
+    padding:8px;
+}
+
+.filme a:hover {
+    background:#b20710;
 }
 </style>
 </head>
@@ -79,47 +63,27 @@ h1 {
 
 <h1>TVAFLIX</h1>
 
-<div id="banner" class="banner"></div>
-
 <div class="container" id="container"></div>
 
 <script>
 fetch('/filmes.json')
-.then(res => res.json())
-.then(filmes => {
+.then(r => r.json())
+.then(lista => {
+    const c = document.getElementById('container');
+    c.innerHTML = '';
 
- const destaque = filmes[0];
- const banner = document.getElementById("banner");
-
- banner.style.backgroundImage = 'url(' + destaque.poster + ')';
- banner.innerHTML = `
-   <div class="banner-info">
-     <h2>${destaque.titulo}</h2>
-     <p>${destaque.genero}</p>
-     <a href="${destaque.trailer}" target="_blank">
-       <button>? Assistir Trailer</button>
-     </a>
-   </div>
- `;
-
- const container = document.getElementById("container");
-
- filmes.forEach(filme => {
-   const div = document.createElement("div");
-   div.className = "filme";
-   div.innerHTML = `
-     <img src="${filme.poster}">
-     <h3>${filme.titulo}</h3>
-     <p>${filme.genero}</p>
-     <a href="${filme.trailer}" target="_blank">Trailer</a>
-   `;
-   container.appendChild(div);
- });
-
+    lista.forEach(f => {
+        c.innerHTML += `
+            <div class="filme">
+                <img src="${f.poster}">
+                <h2>${f.titulo}</h2>
+                <a href="${f.trailer}" target="_blank">Assistir Trailer</a>
+            </div>`;
+    });
 })
 .catch(() => {
- document.getElementById("container").innerHTML =
-   "<p>Erro ao carregar filmes.</p>";
+    document.getElementById('container').innerHTML =
+        "<p>Erro ao carregar filmes.</p>";
 });
 </script>
 
