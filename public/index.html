@@ -1,68 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TVAFLIX</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TVAFLIX</title>
+<style>
     body { font-family: Arial, sans-serif; background: #111; color: #fff; margin: 0; padding: 0; }
-    h1 { text-align: center; margin: 20px 0; color: #e50914; font-size: 48px; }
-    .nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
-    .nav button { padding: 10px 20px; background: #222; border: none; border-radius: 5px; color: #fff; cursor: pointer; }
-    .nav button:hover { background: #e50914; }
+    h1 { text-align: center; margin-top: 20px; color: #e50914; font-size: 48px; letter-spacing: 5px; }
     .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; gap: 20px; }
     .filme { background: #222; padding: 10px; border-radius: 8px; width: 200px; text-align: center; }
     .filme img { width: 100%; border-radius: 5px; }
     .filme h2 { font-size: 18px; margin: 10px 0 5px 0; }
     .filme p { margin: 0 0 10px 0; font-size: 14px; }
     .filme a { display: inline-block; padding: 5px 10px; background: #e50914; color: #fff; text-decoration: none; border-radius: 5px; }
-    .filme a:hover { background: #c00; }
-  </style>
+    .filme a:hover { background: #b10610; }
+</style>
 </head>
 <body>
-  <h1>TVAFLIX</h1>
-  <div class="nav">
-    <button onclick="filter('filme')">Filmes</button>
-    <button onclick="filter('serie')">S�ries</button>
-    <button onclick="showAll()">Todos</button>
-  </div>
-  <div class="container" id="container"></div>
-
-  <script>
-    let allFilmes = [];
-
-    fetch('filmes.json')
-      .then(res => res.json())
-      .then(filmes => {
-        allFilmes = filmes;
-        showAll();
-      })
-      .catch(err => console.error('Erro ao carregar filmes:', err));
-
-    function showAll() {
-      const container = document.getElementById('container');
-      container.innerHTML = '';
-      allFilmes.forEach(f => addFilme(f));
-    }
-
-    function filter(tipo) {
-      const container = document.getElementById('container');
-      container.innerHTML = '';
-      allFilmes.filter(f => f.tipo === tipo).forEach(f => addFilme(f));
-    }
-
-    function addFilme(filme) {
-      const container = document.getElementById('container');
-      const div = document.createElement('div');
-      div.className = 'filme';
-      div.innerHTML = `
-        <img src="${filme.poster}" alt="${filme.titulo}">
-        <h2>${filme.titulo}</h2>
-        <p>${filme.genero} - ${filme.tipo}</p>
-        <a href="${filme.trailer}" target="_blank">Assistir Trailer</a>
-      `;
-      container.appendChild(div);
-    }
-  </script>
+<h1>TVAFLIX</h1>
+<div class="container" id="container"></div>
+<script>
+fetch('filmes.json')
+.then(response => response.json())
+.then(filmes => {
+    const container = document.getElementById('container');
+    filmes.forEach(filme => {
+        const div = document.createElement('div');
+        div.className = 'filme';
+        div.innerHTML = `
+            <img src="${filme.poster}" alt="${filme.titulo}">
+            <h2>${filme.titulo}</h2>
+            <p>${filme.genero} - ${filme.tipo}</p>
+            <a href="${filme.trailer}" target="_blank">Assistir Trailer</a>
+        `;
+        container.appendChild(div);
+    });
+})
+.catch(err => {
+    const container = document.getElementById('container');
+    container.innerHTML = '<p>Não foi possível carregar os filmes.</p>';
+    console.error(err);
+});
+</script>
 </body>
 </html>
