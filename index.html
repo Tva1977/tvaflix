@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -94,13 +94,13 @@ nav button {
 <h1>TVAFLIX</h1>
 
 <nav>
-    <button onclick="filtrarPorTipo('filme')">▶ Filmes</button>
-    <button onclick="filtrarPorTipo('serie')">📺 Séries</button>
-    <button onclick="mostrarFavoritos()">⭐ Favoritos</button>
-    <button onclick="login()">👤 Login</button>
+    <button onclick="filtrarPorTipo('filme')">? Filmes</button>
+    <button onclick="filtrarPorTipo('serie')">?? S�ries</button>
+    <button onclick="mostrarFavoritos()">? Favoritos</button>
+    <button onclick="login()">?? Login</button>
 </nav>
 
-<input id="busca" placeholder="🔎 Buscar...">
+<input id="busca" placeholder="?? Buscar...">
 
 <div class="container" id="container"></div>
 
@@ -135,8 +135,8 @@ function mostrarFilmes(filmes){
         div.innerHTML = `
             <img src="${filme.poster}">
             <h3>${filme.titulo}</h3>
-            <button onclick="abrirPlayer('${filme.trailer}')">▶ Assistir</button>
-            <button onclick="adicionarFavorito('${filme.titulo}')">⭐</button>
+            <button onclick="abrirPlayer('${filme.trailer}')">? Assistir</button>
+            <button onclick="adicionarFavorito('${filme.titulo}')">?</button>
         `;
 
         container.appendChild(div);
@@ -156,8 +156,8 @@ function mostrarFavoritos(){
 }
 
 function login(){
-    const user = prompt("Digite seu usuário:");
-    alert("Olá, " + user + "! (Login simulado)");
+    const user = prompt("Digite seu usu�rio:");
+    alert("Ol�, " + user + "! (Login simulado)");
 }
 
 function filtrarPorTipo(tipo){
