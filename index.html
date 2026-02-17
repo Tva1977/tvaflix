@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -84,20 +84,20 @@ h1 {
 <div class="container" id="container"></div>
 
 <script>
-fetch('filmes.json')
+fetch('/filmes.json')
 .then(res => res.json())
 .then(filmes => {
 
  const destaque = filmes[0];
  const banner = document.getElementById("banner");
 
- banner.style.backgroundImage = `url(${destaque.poster})`;
+ banner.style.backgroundImage = 'url(' + destaque.poster + ')';
  banner.innerHTML = `
    <div class="banner-info">
      <h2>${destaque.titulo}</h2>
      <p>${destaque.genero}</p>
      <a href="${destaque.trailer}" target="_blank">
-       <button>▶ Assistir Trailer</button>
+       <button>? Assistir Trailer</button>
      </a>
    </div>
  `;
