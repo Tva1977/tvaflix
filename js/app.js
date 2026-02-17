@@ -1,24 +1,43 @@
-﻿fetch('/filmes.json')
-.then(r => r.json())
-.then(lista => {
-    const c = document.getElementById('container');
-    c.innerHTML = '';
+﻿async function carregarConteudo() {
+  const resposta = await fetch('filmes.json');
+  const dados = await resposta.json();
 
-    lista.forEach(f => {
-        const div = document.createElement('div');
-        div.className = 'filme';
+  const botoes = document.getElementById('botoes');
+  const conteudo = document.getElementById('conteudo');
 
-        div.innerHTML = 
-            <img src="\">
-            <h3>\</h3>
-            <p>\</p>
-            <a href="\" target="_blank">Trailer</a>
-        ;
+  // Criar botões dinamicamente
+  const btnTodos = document.createElement('button');
+  btnTodos.textContent = "Todos";
+  btnTodos.onclick = () => mostrar(dados);
 
-        c.appendChild(div);
+  const btnFilmes = document.createElement('button');
+  btnFilmes.textContent = "Filmes";
+  btnFilmes.onclick = () => mostrar(dados.filter(item => item.tipo === "filme"));
+
+  const btnSeries = document.createElement('button');
+  btnSeries.textContent = "Séries";
+  btnSeries.onclick = () => mostrar(dados.filter(item => item.tipo === "série"));
+
+  botoes.appendChild(btnTodos);
+  botoes.appendChild(btnFilmes);
+  botoes.appendChild(btnSeries);
+
+  // Mostrar todos por padrão
+  mostrar(dados);
+
+  function mostrar(lista) {
+    conteudo.innerHTML = "";
+    lista.forEach(item => {
+      const card = document.createElement('div');
+      card.className = "card";
+      card.innerHTML = 
+        <h2></h2>
+        <p> - </p>
+        <a href="" target="_blank">Assistir Trailer</a>
+      ;
+      conteudo.appendChild(card);
     });
-})
-.catch(() => {
-    document.getElementById('container').innerHTML =
-        "<p>Erro ao carregar filmes.</p>";
-});
+  }
+}
+
+carregarConteudo();
