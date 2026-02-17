@@ -1,4 +1,4 @@
-fetch('filmes.json')
+fetch('/filmes.json')
 .then(r => r.json())
 .then(lista => {
     const c = document.getElementById('container');
