@@ -1,6 +1,71 @@
-body { font-family: Arial, sans-serif; background:#111; color:#fff; margin:0; }
-h1 { text-align:center; padding:20px; color:#e50914; }
-.container { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:20px; }
-.filme { background:#222; width:200px; padding:10px; border-radius:8px; text-align:center; }
-.filme img { width:100%; border-radius:5px; }
-.filme a { display:inline-block; margin-top:5px; background:#e50914; color:#fff; padding:6px; border-radius:5px; text-decoration:none; }
+﻿body {
+  background-color: #141414;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  color: #e50914;
+}
+
+#botoes {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#botoes button {
+  background-color: #e50914;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#botoes button:hover {
+  background-color: #f40612;
+  transform: scale(1.05);
+}
+
+.card {
+  background-color: #222;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card h2 {
+  color: #fff;
+}
+
+.card p {
+  color: #aaa;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #e50914;
+  color: #fff;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.card a:hover {
+  background-color: #f40612;
+}
