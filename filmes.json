@@ -54,5 +54,145 @@
         "tipo":  "serie",
         "poster":  "https://upload.wikimedia.org/wikipedia/commons/8/89/Placeholder.jpg",
         "trailer":  "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg",
+        "titulo":  "Inception",
+        "tipo":  "filme",
+        "genero":  "Ficção Científica",
+        "trailer":  "https://www.youtube.com/watch?v=YoHD9XEInc0"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+        "titulo":  "Interstellar",
+        "tipo":  "filme",
+        "genero":  "Ficção Científica",
+        "trailer":  "https://www.youtube.com/watch?v=zSWdZVtXT7E"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+        "titulo":  "The Dark Knight",
+        "tipo":  "filme",
+        "genero":  "Ação",
+        "trailer":  "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/eSzpy96DwBujGFj0xMbXBcGcfxX.jpg",
+        "titulo":  "Breaking Bad",
+        "tipo":  "série",
+        "genero":  "Drama",
+        "trailer":  "https://www.youtube.com/watch?v=HhesaQXLuRY"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
+        "titulo":  "Game of Thrones",
+        "tipo":  "série",
+        "genero":  "Fantasia",
+        "trailer":  "https://www.youtube.com/watch?v=BpJYNVhGf1s"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg",
+        "titulo":  "Stranger Things",
+        "tipo":  "série",
+        "genero":  "Ficção Científica",
+        "trailer":  "https://www.youtube.com/watch?v=mnd7sFt5c3A"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/f89U3D0j6pY6DeS8vFGqwFzDq4C.jpg",
+        "titulo":  "The Matrix",
+        "tipo":  "filme",
+        "genero":  "Ficção Científica",
+        "trailer":  "https://www.youtube.com/watch?v=vKQi3bBA1y8"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/kyeqWdyUXW608qlYkRqosgbbJyK.jpg",
+        "titulo":  "Avatar",
+        "tipo":  "filme",
+        "genero":  "Ficção Científica",
+        "trailer":  "https://www.youtube.com/watch?v=5PSNL1qE6VY"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
+        "titulo":  "Avengers: Endgame",
+        "tipo":  "filme",
+        "genero":  "Ação",
+        "trailer":  "https://www.youtube.com/watch?v=TcMBFSGVi1c"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/zrPpUlehQaBf8YX2NrVrKK8IEpf.jpg",
+        "titulo":  "The Witcher",
+        "tipo":  "série",
+        "genero":  "Fantasia",
+        "trailer":  "https://www.youtube.com/watch?v=ndl1W4ltcmg"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/mY7SeH4HFFxW1hp1rjF2jYp0j7j.jpg",
+        "titulo":  "The Boys",
+        "tipo":  "série",
+        "genero":  "Ação",
+        "trailer":  "https://www.youtube.com/watch?v=06rueu_fh30"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/bGZn5RVzMMXju4ev7xbl1aLdXqq.jpg",
+        "titulo":  "Peaky Blinders",
+        "tipo":  "série",
+        "genero":  "Drama",
+        "trailer":  "https://www.youtube.com/watch?v=oVzVdvGIC7U"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/1lOJ2t5cC6tYxJj3d3t8uKkJp0Y.jpg",
+        "titulo":  "The Crown",
+        "tipo":  "série",
+        "genero":  "Drama",
+        "trailer":  "https://www.youtube.com/watch?v=JWtnJjn6ng0"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/1X4h40fcB4WWUmIBK0auTfbq0x0.jpg",
+        "titulo":  "House of the Dragon",
+        "tipo":  "série",
+        "genero":  "Fantasia",
+        "trailer":  "https://www.youtube.com/watch?v=DotnJ7tTA34"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg",
+        "titulo":  "The Mandalorian",
+        "tipo":  "série",
+        "genero":  "Ficção Científica",
+        "trailer":  "https://www.youtube.com/watch?v=aOC8E8z_ifw"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/kEl2t3OhXc3Zb9FBh1AuYzRTgZp.jpg",
+        "titulo":  "Loki",
+        "tipo":  "série",
+        "genero":  "Ficção Científica",
+        "trailer":  "https://www.youtube.com/watch?v=nW948Va-l10"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/glKDfE6btIRcVB5zrjspRIs4r52.jpg",
+        "titulo":  "WandaVision",
+        "tipo":  "série",
+        "genero":  "Ficção Científica",
+        "trailer":  "https://www.youtube.com/watch?v=sj9J2ecsSpo"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/4PiiNGXj1KENTmCBpZB0kq2z2Q4.jpg",
+        "titulo":  "Doctor Strange",
+        "tipo":  "filme",
+        "genero":  "Ficção Científica",
+        "trailer":  "https://www.youtube.com/watch?v=Lt-U_t2pUHI"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+        "titulo":  "Spider-Man: No Way Home",
+        "tipo":  "filme",
+        "genero":  "Ação",
+        "trailer":  "https://www.youtube.com/watch?v=JfVOs4VSpmA"
+    },
+    {
+        "poster":  "https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+        "titulo":  "Black Panther",
+        "tipo":  "filme",
+        "genero":  "Ação",
+        "trailer":  "https://www.youtube.com/watch?v=xjDjIWPwcPU"
     }
 ]
