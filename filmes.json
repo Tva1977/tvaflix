@@ -40,5 +40,19 @@
         "tipo":  "serie",
         "poster":  "https://upload.wikimedia.org/wikipedia/commons/8/89/Placeholder.jpg",
         "trailer":  "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+        "titulo":  "Filme Extra 1",
+        "genero":  "Ação",
+        "tipo":  "filme",
+        "poster":  "https://upload.wikimedia.org/wikipedia/commons/8/89/Placeholder.jpg",
+        "trailer":  "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+        "titulo":  "Série Extra 1",
+        "genero":  "Drama",
+        "tipo":  "serie",
+        "poster":  "https://upload.wikimedia.org/wikipedia/commons/8/89/Placeholder.jpg",
+        "trailer":  "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
 ]
