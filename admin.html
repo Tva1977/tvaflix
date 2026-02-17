@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Admin TVAFLIX</title>
+<style>
+body{background:#141414;color:white;font-family:Arial;padding:20px;}
+input,button{display:block;margin:10px 0;padding:10px;width:300px;}
+button{background:#e50914;color:white;border:none;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<h1>PAINEL ADMIN TVAFLIX</h1>
+
+<input id="titulo" placeholder="Título">
+<input id="genero" placeholder="Gênero">
+<input id="poster" placeholder="URL do Poster">
+<input id="trailer" placeholder="URL do Trailer">
+
+<button onclick="salvar()">Adicionar Filme</button>
+
+<script>
+async function salvar(){
+  const novo = {
+    titulo: titulo.value,
+    genero: genero.value,
+    poster: poster.value,
+    trailer: trailer.value
+  };
+
+  const res = await fetch('filmes.json');
+  const dados = await res.json();
+
+  dados.push(novo);
+
+  const blob = new Blob(
+    [JSON.stringify(dados, null, 2)],
+    {type:"application/json"}
+  );
+
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "filmes.json";
+  link.click();
+
+  alert("Arquivo atualizado baixado. Substitua o filmes.json do projeto e faça push.");
+}
+</script>
+
+</body>
+</html>
