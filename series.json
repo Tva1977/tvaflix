@@ -1,26 +1,21 @@
 [
   {
     "titulo": "Stranger Things",
-    "genero": "Ficção",
     "poster": "https://upload.wikimedia.org/wikipedia/en/f/f7/Stranger_Things_season_4.jpg",
-    "trailer": "https://www.youtube.com/watch?v=b9EkMc79ZSU"
-  },
-  {
-    "titulo": "The Last of Us",
-    "genero": "Drama",
-    "poster": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Last_of_Us_HBO.jpg",
-    "trailer": "https://www.youtube.com/watch?v=uLtkt8BonwM"
-  },
-  {
-    "titulo": "Loki",
-    "genero": "Ação",
-    "poster": "https://upload.wikimedia.org/wikipedia/en/4/4e/Loki_%28TV_series%29_logo.png",
-    "trailer": "https://www.youtube.com/watch?v=nW948Va-l10"
-  },
-  {
-    "titulo": "The Witcher",
-    "genero": "Fantasia",
-    "poster": "https://upload.wikimedia.org/wikipedia/en/0/0c/The_Witcher_title_card.png",
-    "trailer": "https://www.youtube.com/watch?v=ndl1W4ltcmg"
+    "temporadas": [
+      {
+        "temporada": 1,
+        "episodios": [
+          {
+            "titulo": "Episódio 1",
+            "video": "https://www.youtube.com/watch?v=b9EkMc79ZSU"
+          },
+          {
+            "titulo": "Episódio 2",
+            "video": "https://www.youtube.com/watch?v=b9EkMc79ZSU"
+          }
+        ]
+      }
+    ]
   }
 ]
