@@ -1,126 +1,108 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TVAFLIX</title>
 
 <style>
-body { margin:0; font-family:Arial; background:#111; color:#fff; }
-
-h1 {
- text-align:center;
- padding:20px;
- margin:0;
- font-size:40px;
- color:#e50914;
+body{
+  margin:0;
+  background:#141414;
+  color:white;
+  font-family:Arial;
 }
 
-.banner {
- position:relative;
- height:60vh;
- background-size:cover;
- background-position:center;
- display:flex;
- align-items:flex-end;
- padding:40px;
+header{
+  background:black;
+  padding:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.banner-info {
- background:rgba(0,0,0,0.6);
- padding:20px;
- border-radius:8px;
+.logo{
+  color:#e50914;
+  font-size:32px;
+  font-weight:bold;
 }
 
-.banner button {
- padding:10px 20px;
- background:#e50914;
- color:#fff;
- border:none;
- border-radius:5px;
- cursor:pointer;
- font-size:16px;
+.menu button{
+  background:#e50914;
+  border:none;
+  color:white;
+  padding:10px 20px;
+  margin-left:10px;
+  cursor:pointer;
+  border-radius:4px;
 }
 
-.container {
- display:flex;
- flex-wrap:wrap;
- justify-content:center;
- padding:20px;
- gap:20px;
+#banner{
+  height:350px;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:flex-end;
+  padding:20px;
+  font-size:28px;
+  font-weight:bold;
 }
 
-.filme {
- background:#222;
- padding:10px;
- border-radius:8px;
- width:200px;
- text-align:center;
+#catalogo{
+  display:flex;
+  flex-wrap:wrap;
+  padding:20px;
+  gap:15px;
 }
 
-.filme img {
- width:100%;
- border-radius:5px;
+.card{
+  width:200px;
+  cursor:pointer;
 }
 
-.filme a {
- display:inline-block;
- margin-top:5px;
- padding:5px 10px;
- background:#e50914;
- color:#fff;
- text-decoration:none;
- border-radius:5px;
+.card img{
+  width:100%;
+  border-radius:6px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>TVAFLIX</h1>
+<header>
+<div class="logo">TVAFLIX</div>
+<div class="menu">
+<button onclick="carregar('filmes.json')">Filmes</button>
+<button onclick="carregar('series.json')">Séries</button>
+</div>
+</header>
 
-<div id="banner" class="banner"></div>
-
-<div class="container" id="container"></div>
+<div id="banner">Carregando...</div>
+<div id="catalogo"></div>
 
 <script>
-fetch('/filmes.json')
-.then(res => res.json())
-.then(filmes => {
+async function carregar(arquivo){
+  const res = await fetch(arquivo);
+  const dados = await res.json();
 
- const destaque = filmes[0];
- const banner = document.getElementById("banner");
+  const banner = document.getElementById("banner");
+  const catalogo = document.getElementById("catalogo");
 
- banner.style.backgroundImage = 'url(' + destaque.poster + ')';
- banner.innerHTML = `
-   <div class="banner-info">
-     <h2>${destaque.titulo}</h2>
-     <p>${destaque.genero}</p>
-     <a href="${destaque.trailer}" target="_blank">
-       <button>? Assistir Trailer</button>
-     </a>
-   </div>
- `;
+  banner.style.backgroundImage =
+    "url('" + dados[0].poster + "')";
+  banner.innerText = dados[0].titulo;
 
- const container = document.getElementById("container");
+  catalogo.innerHTML = "";
 
- filmes.forEach(filme => {
-   const div = document.createElement("div");
-   div.className = "filme";
-   div.innerHTML = `
-     <img src="${filme.poster}">
-     <h3>${filme.titulo}</h3>
-     <p>${filme.genero}</p>
-     <a href="${filme.trailer}" target="_blank">Trailer</a>
-   `;
-   container.appendChild(div);
- });
+  dados.forEach(filme=>{
+    catalogo.innerHTML += `
+      <div class="card"
+           onclick="window.open('${filme.trailer}','_blank')">
+        <img src="${filme.poster}">
+      </div>`;
+  });
+}
 
-})
-.catch(() => {
- document.getElementById("container").innerHTML =
-   "<p>Erro ao carregar filmes.</p>";
-});
+carregar('filmes.json');
 </script>
 
 </body>
