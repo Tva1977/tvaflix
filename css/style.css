@@ -1,0 +1,6 @@
+body { font-family: Arial, sans-serif; background:#111; color:#fff; margin:0; }
+h1 { text-align:center; padding:20px; color:#e50914; }
+.container { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:20px; }
+.filme { background:#222; width:200px; padding:10px; border-radius:8px; text-align:center; }
+.filme img { width:100%; border-radius:5px; }
+.filme a { display:inline-block; margin-top:5px; background:#e50914; color:#fff; padding:6px; border-radius:5px; text-decoration:none; }
