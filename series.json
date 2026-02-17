@@ -1,21 +1,12 @@
-[
+ï»¿[
+  {
+    "titulo": "The Witcher",
+    "poster": "https://upload.wikimedia.org/wikipedia/pt/1/1c/The_Witcher_TV_series_poster.jpg",
+    "trailer": "https://www.youtube.com/watch?v=ndl1W4ltcmg"
+  },
   {
     "titulo": "Stranger Things",
-    "poster": "https://upload.wikimedia.org/wikipedia/en/f/f7/Stranger_Things_season_4.jpg",
-    "temporadas": [
-      {
-        "temporada": 1,
-        "episodios": [
-          {
-            "titulo": "Episódio 1",
-            "video": "https://www.youtube.com/watch?v=b9EkMc79ZSU"
-          },
-          {
-            "titulo": "Episódio 2",
-            "video": "https://www.youtube.com/watch?v=b9EkMc79ZSU"
-          }
-        ]
-      }
-    ]
+    "poster": "https://upload.wikimedia.org/wikipedia/pt/f/f7/Stranger_Things_season_4.jpg",
+    "trailer": "https://www.youtube.com/watch?v=b9EkMc79ZSU"
   }
 ]
