@@ -33,47 +33,5 @@
         "tipo":  "filme",
         "genero":  "Terror",
         "trailer":  "https://archive.org/download/Caligari1920/Caligari1920.mp4"
-    },
-    {
-        "poster":  "https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg",
-        "titulo":  "Inception",
-        "tipo":  "filme",
-        "genero":  "Ficção Científica",
-        "trailer":  "https://www.youtube.com/watch?v=YoHD9XEInc0"
-    },
-    {
-        "poster":  "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
-        "titulo":  "Interstellar",
-        "tipo":  "filme",
-        "genero":  "Ficção Científica",
-        "trailer":  "https://www.youtube.com/watch?v=zSWdZVtXT7E"
-    },
-    {
-        "poster":  "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-        "titulo":  "The Dark Knight",
-        "tipo":  "filme",
-        "genero":  "Ação",
-        "trailer":  "https://www.youtube.com/watch?v=EXeTwQWrcwY"
-    },
-    {
-        "poster":  "https://image.tmdb.org/t/p/w500/eSzpy96DwBujGFj0xMbXBcGcfxX.jpg",
-        "titulo":  "Breaking Bad",
-        "tipo":  "série",
-        "genero":  "Drama",
-        "trailer":  "https://www.youtube.com/watch?v=HhesaQXLuRY"
-    },
-    {
-        "poster":  "https://image.tmdb.org/t/p/w500/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
-        "titulo":  "Game of Thrones",
-        "tipo":  "série",
-        "genero":  "Fantasia",
-        "trailer":  "https://www.youtube.com/watch?v=BpJYNVhGf1s"
-    },
-    {
-        "poster":  "https://image.tmdb.org/t/p/w500/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg",
-        "titulo":  "Stranger Things",
-        "tipo":  "série",
-        "genero":  "Ficção Científica",
-        "trailer":  "https://www.youtube.com/watch?v=mnd7sFt5c3A"
     }
 ]
