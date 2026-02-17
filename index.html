@@ -7,11 +7,28 @@
 
 <style>
 body { font-family: Arial, sans-serif; background:#111; color:#fff; margin:0; }
+
 h1 { text-align:center; margin:20px; color:#e50914; font-size:48px; }
+
+#banner {
+  position:relative;
+  height:400px;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:end;
+  padding:30px;
+}
+
+#banner h2 {
+  background:rgba(0,0,0,0.7);
+  padding:10px 20px;
+  border-radius:6px;
+}
 
 #busca {
   display:block;
-  margin:0 auto 20px auto;
+  margin:20px auto;
   padding:10px;
   width:80%;
   max-width:400px;
@@ -34,26 +51,11 @@ h1 { text-align:center; margin:20px; color:#e50914; font-size:48px; }
   border-radius:8px;
   width:200px;
   text-align:center;
-  transition:.3s;
-}
-
-.filme:hover {
-  transform:scale(1.05);
 }
 
 .filme img {
   width:100%;
   border-radius:5px;
-}
-
-.filme h2 {
-  font-size:18px;
-  margin:10px 0 5px;
-}
-
-.filme p {
-  margin:0 0 10px;
-  font-size:14px;
 }
 
 .filme a {
@@ -71,6 +73,10 @@ h1 { text-align:center; margin:20px; color:#e50914; font-size:48px; }
 
 <h1>TVAFLIX</h1>
 
+<div id="banner">
+  <h2 id="bannerTitulo"></h2>
+</div>
+
 <input type="text" id="busca" placeholder="Buscar filme...">
 
 <div class="container" id="container"></div>
@@ -82,6 +88,14 @@ fetch('filmes.json')
 .then(r => r.json())
 .then(filmes => {
   listaFilmes = filmes;
+
+  // banner usa o primeiro filme
+  const destaque = filmes[0];
+  document.getElementById("banner").style.backgroundImage =
+    `url(${destaque.poster})`;
+  document.getElementById("bannerTitulo").innerText =
+    destaque.titulo;
+
   mostrarFilmes(filmes);
 });
 
