@@ -5,64 +5,15 @@
 <title>TVAFLIX</title>
 
 <style>
-body{
-  margin:0;
-  background:#141414;
-  color:white;
-  font-family:Arial;
-}
-
-header{
-  background:black;
-  padding:15px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo{
-  color:#e50914;
-  font-size:32px;
-  font-weight:bold;
-}
-
-.menu button{
-  background:#e50914;
-  border:none;
-  color:white;
-  padding:10px 20px;
-  margin-left:10px;
-  cursor:pointer;
-  border-radius:4px;
-}
-
-#banner{
-  height:350px;
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:flex-end;
-  padding:20px;
-  font-size:28px;
-  font-weight:bold;
-}
-
-#catalogo{
-  display:flex;
-  flex-wrap:wrap;
-  padding:20px;
-  gap:15px;
-}
-
-.card{
-  width:200px;
-  cursor:pointer;
-}
-
-.card img{
-  width:100%;
-  border-radius:6px;
-}
+body{margin:0;background:#141414;color:white;font-family:Arial;}
+header{background:black;padding:15px;display:flex;justify-content:space-between;}
+.logo{color:#e50914;font-size:32px;font-weight:bold;}
+.menu button{background:#e50914;border:none;color:white;padding:10px 20px;margin-left:10px;cursor:pointer;border-radius:4px;}
+#banner{height:350px;background-size:cover;background-position:center;display:flex;align-items:flex-end;padding:20px;font-size:28px;font-weight:bold;}
+#catalogo{display:flex;flex-wrap:wrap;padding:20px;gap:15px;}
+.card{width:200px;cursor:pointer;position:relative;}
+.card img{width:100%;border-radius:6px;}
+.fav{position:absolute;top:5px;right:5px;background:black;padding:5px;border-radius:50%;}
 </style>
 </head>
 
@@ -72,7 +23,7 @@ header{
 <div class="logo">TVAFLIX</div>
 <div class="menu">
 <button onclick="carregar('filmes.json')">Filmes</button>
-<button onclick="carregar('series.json')">Séries</button>
+<button onclick="mostrarFavoritos()">Favoritos</button>
 </div>
 </header>
 
@@ -80,24 +31,45 @@ header{
 <div id="catalogo"></div>
 
 <script>
+let catalogoAtual = [];
+
+function salvarFavorito(item){
+  let fav = JSON.parse(localStorage.getItem("fav") || "[]");
+  if(!fav.find(f => f.titulo === item.titulo)){
+    fav.push(item);
+    localStorage.setItem("fav", JSON.stringify(fav));
+    alert("Adicionado aos favoritos!");
+  }
+}
+
+function mostrarFavoritos(){
+  const fav = JSON.parse(localStorage.getItem("fav") || "[]");
+  montarCatalogo(fav);
+}
+
 async function carregar(arquivo){
   const res = await fetch(arquivo);
-  const dados = await res.json();
+  catalogoAtual = await res.json();
+  montarCatalogo(catalogoAtual);
+}
 
+function montarCatalogo(dados){
   const banner = document.getElementById("banner");
   const catalogo = document.getElementById("catalogo");
 
-  banner.style.backgroundImage =
-    "url('" + dados[0].poster + "')";
-  banner.innerText = dados[0].titulo;
+  if(dados.length){
+    banner.style.backgroundImage =
+      "url('" + dados[0].poster + "')";
+    banner.innerText = dados[0].titulo;
+  }
 
   catalogo.innerHTML = "";
 
-  dados.forEach(filme=>{
+  dados.forEach(item=>{
     catalogo.innerHTML += `
-      <div class="card"
-           onclick="window.open('${filme.trailer}','_blank')">
-        <img src="${filme.poster}">
+      <div class="card">
+        <img src="${item.poster}" onclick="window.open('${item.trailer}','_blank')">
+        <div class="fav" onclick='salvarFavorito(${JSON.stringify(item)})'>??</div>
       </div>`;
   });
 }
