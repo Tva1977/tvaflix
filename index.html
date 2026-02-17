@@ -6,65 +6,71 @@
 <title>TVAFLIX</title>
 
 <style>
-body { font-family: Arial, sans-serif; background:#111; color:#fff; margin:0; }
+body { margin:0; font-family:Arial; background:#111; color:#fff; }
 
-h1 { text-align:center; margin:20px; color:#e50914; font-size:48px; }
-
-#banner {
-  position:relative;
-  height:400px;
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:end;
-  padding:30px;
+h1 {
+ text-align:center;
+ padding:20px;
+ margin:0;
+ font-size:40px;
+ color:#e50914;
 }
 
-#banner h2 {
-  background:rgba(0,0,0,0.7);
-  padding:10px 20px;
-  border-radius:6px;
+.banner {
+ position:relative;
+ height:60vh;
+ background-size:cover;
+ background-position:center;
+ display:flex;
+ align-items:flex-end;
+ padding:40px;
 }
 
-#busca {
-  display:block;
-  margin:20px auto;
-  padding:10px;
-  width:80%;
-  max-width:400px;
-  border-radius:6px;
-  border:none;
-  font-size:16px;
+.banner-info {
+ background:rgba(0,0,0,0.6);
+ padding:20px;
+ border-radius:8px;
+}
+
+.banner button {
+ padding:10px 20px;
+ background:#e50914;
+ color:#fff;
+ border:none;
+ border-radius:5px;
+ cursor:pointer;
+ font-size:16px;
 }
 
 .container {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
-  padding:20px;
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ padding:20px;
+ gap:20px;
 }
 
 .filme {
-  background:#222;
-  padding:10px;
-  border-radius:8px;
-  width:200px;
-  text-align:center;
+ background:#222;
+ padding:10px;
+ border-radius:8px;
+ width:200px;
+ text-align:center;
 }
 
 .filme img {
-  width:100%;
-  border-radius:5px;
+ width:100%;
+ border-radius:5px;
 }
 
 .filme a {
-  display:inline-block;
-  padding:6px 12px;
-  background:#e50914;
-  color:#fff;
-  text-decoration:none;
-  border-radius:5px;
+ display:inline-block;
+ margin-top:5px;
+ padding:5px 10px;
+ background:#e50914;
+ color:#fff;
+ text-decoration:none;
+ border-radius:5px;
 }
 </style>
 </head>
@@ -73,55 +79,47 @@ h1 { text-align:center; margin:20px; color:#e50914; font-size:48px; }
 
 <h1>TVAFLIX</h1>
 
-<div id="banner">
-  <h2 id="bannerTitulo"></h2>
-</div>
-
-<input type="text" id="busca" placeholder="Buscar filme...">
+<div id="banner" class="banner"></div>
 
 <div class="container" id="container"></div>
 
 <script>
-let listaFilmes = [];
-
 fetch('filmes.json')
-.then(r => r.json())
+.then(res => res.json())
 .then(filmes => {
-  listaFilmes = filmes;
 
-  // banner usa o primeiro filme
-  const destaque = filmes[0];
-  document.getElementById("banner").style.backgroundImage =
-    `url(${destaque.poster})`;
-  document.getElementById("bannerTitulo").innerText =
-    destaque.titulo;
+ const destaque = filmes[0];
+ const banner = document.getElementById("banner");
 
-  mostrarFilmes(filmes);
-});
+ banner.style.backgroundImage = `url(${destaque.poster})`;
+ banner.innerHTML = `
+   <div class="banner-info">
+     <h2>${destaque.titulo}</h2>
+     <p>${destaque.genero}</p>
+     <a href="${destaque.trailer}" target="_blank">
+       <button>▶ Assistir Trailer</button>
+     </a>
+   </div>
+ `;
 
-function mostrarFilmes(filmes){
-  const container = document.getElementById('container');
-  container.innerHTML = '';
+ const container = document.getElementById("container");
 
-  filmes.forEach(filme => {
-    const div = document.createElement('div');
-    div.className = 'filme';
-    div.innerHTML = `
-      <img src="${filme.poster}">
-      <h2>${filme.titulo}</h2>
-      <p>${filme.genero}</p>
-      <a href="${filme.trailer}" target="_blank">Assistir Trailer</a>
-    `;
-    container.appendChild(div);
-  });
-}
+ filmes.forEach(filme => {
+   const div = document.createElement("div");
+   div.className = "filme";
+   div.innerHTML = `
+     <img src="${filme.poster}">
+     <h3>${filme.titulo}</h3>
+     <p>${filme.genero}</p>
+     <a href="${filme.trailer}" target="_blank">Trailer</a>
+   `;
+   container.appendChild(div);
+ });
 
-document.getElementById('busca').addEventListener('input', e => {
-  const termo = e.target.value.toLowerCase();
-  const filtrados = listaFilmes.filter(f =>
-    f.titulo.toLowerCase().includes(termo)
-  );
-  mostrarFilmes(filtrados);
+})
+.catch(() => {
+ document.getElementById("container").innerHTML =
+   "<p>Erro ao carregar filmes.</p>";
 });
 </script>
 
