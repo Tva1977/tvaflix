@@ -165,7 +165,7 @@ function filtrarPorTipo(tipo){
     mostrarFilmes(filtrados);
 }
 
-fetch('/filmes.json')
+fetch('filmes.json')
 .then(r => r.json())
 .then(filmes => {
     listaFilmes = filmes;
