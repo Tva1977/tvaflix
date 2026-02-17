@@ -6,84 +6,54 @@
 <title>TVAFLIX</title>
 
 <style>
-body {
-    margin:0;
-    font-family: Arial;
-    background:#111;
-    color:white;
-}
-
-h1 {
-    text-align:center;
-    padding:20px;
-    background:#000;
-    color:#e50914;
-}
-
-.container {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-    padding:20px;
-}
-
-.filme {
-    background:#222;
-    width:200px;
-    border-radius:8px;
-    overflow:hidden;
-    text-align:center;
-}
-
-.filme img {
-    width:100%;
-}
-
-.filme h2 {
-    font-size:16px;
-    padding:5px;
-}
-
-.filme a {
-    display:block;
-    background:#e50914;
-    color:white;
-    text-decoration:none;
-    padding:8px;
-}
-
-.filme a:hover {
-    background:#b20710;
-}
+body { font-family: Arial; background:#111; color:white; margin:0 }
+h1 { text-align:center; color:#e50914; margin:20px }
+.container { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:20px }
+.filme { background:#222; width:200px; padding:10px; border-radius:8px; text-align:center }
+.filme img { width:100%; border-radius:5px }
+.filme a { display:inline-block; margin-top:5px; padding:6px 10px; background:#e50914; color:white; text-decoration:none; border-radius:4px }
 </style>
-</head>
 
+</head>
 <body>
 
 <h1>TVAFLIX</h1>
-
 <div class="container" id="container"></div>
 
 <script>
-fetch('/filmes.json')
-.then(r => r.json())
-.then(lista => {
-    const c = document.getElementById('container');
-    c.innerHTML = '';
+const filmes = [
+{
+titulo:"Vingadores: Ultimato",
+genero:"Ação",
+poster:"https://upload.wikimedia.org/wikipedia/pt/0/0d/Avengers_Endgame_poster.jpg",
+trailer:"https://www.youtube.com/watch?v=TcMBFSGVi1c"
+},
+{
+titulo:"O Rei Leão",
+genero:"Infantil",
+poster:"https://upload.wikimedia.org/wikipedia/pt/3/3d/The_Lion_King_poster.jpg",
+trailer:"https://www.youtube.com/watch?v=7TavVZMewpY"
+},
+{
+titulo:"Homem-Aranha: Sem Volta Para Casa",
+genero:"Ação",
+poster:"https://upload.wikimedia.org/wikipedia/pt/f/f9/Spider-Man_No_Way_Home.jpg",
+trailer:"https://www.youtube.com/watch?v=JfVOs4VSpmA"
+}
+];
 
-    lista.forEach(f => {
-        c.innerHTML += `
-            <div class="filme">
-                <img src="${f.poster}">
-                <h2>${f.titulo}</h2>
-                <a href="${f.trailer}" target="_blank">Assistir Trailer</a>
-            </div>`;
-    });
-})
-.catch(() => {
-    document.getElementById('container').innerHTML =
-        "<p>Erro ao carregar filmes.</p>";
+const container = document.getElementById("container");
+
+filmes.forEach(f => {
+const div = document.createElement("div");
+div.className = "filme";
+div.innerHTML = `
+<img src="${f.poster}">
+<h3>${f.titulo}</h3>
+<p>${f.genero}</p>
+<a href="${f.trailer}" target="_blank">Assistir Trailer</a>
+`;
+container.appendChild(div);
 });
 </script>
 
