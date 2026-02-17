@@ -1,16 +1,127 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TVAFLIX</title>
-<link rel="stylesheet" href="css/style.css">
+
+<style>
+body { margin:0; font-family:Arial; background:#111; color:#fff; }
+
+h1 {
+ text-align:center;
+ padding:20px;
+ margin:0;
+ font-size:40px;
+ color:#e50914;
+}
+
+.banner {
+ position:relative;
+ height:60vh;
+ background-size:cover;
+ background-position:center;
+ display:flex;
+ align-items:flex-end;
+ padding:40px;
+}
+
+.banner-info {
+ background:rgba(0,0,0,0.6);
+ padding:20px;
+ border-radius:8px;
+}
+
+.banner button {
+ padding:10px 20px;
+ background:#e50914;
+ color:#fff;
+ border:none;
+ border-radius:5px;
+ cursor:pointer;
+ font-size:16px;
+}
+
+.container {
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ padding:20px;
+ gap:20px;
+}
+
+.filme {
+ background:#222;
+ padding:10px;
+ border-radius:8px;
+ width:200px;
+ text-align:center;
+}
+
+.filme img {
+ width:100%;
+ border-radius:5px;
+}
+
+.filme a {
+ display:inline-block;
+ margin-top:5px;
+ padding:5px 10px;
+ background:#e50914;
+ color:#fff;
+ text-decoration:none;
+ border-radius:5px;
+}
+</style>
 </head>
+
 <body>
 
 <h1>TVAFLIX</h1>
+
+<div id="banner" class="banner"></div>
+
 <div class="container" id="container"></div>
 
-<script src="js/app.js"></script>
-<script src="js/app.js"></script></body>
+<script>
+fetch('filmes.json')
+.then(res => res.json())
+.then(filmes => {
+
+ const destaque = filmes[0];
+ const banner = document.getElementById("banner");
+
+ banner.style.backgroundImage = `url(${destaque.poster})`;
+ banner.innerHTML = `
+   <div class="banner-info">
+     <h2>${destaque.titulo}</h2>
+     <p>${destaque.genero}</p>
+     <a href="${destaque.trailer}" target="_blank">
+       <button>▶ Assistir Trailer</button>
+     </a>
+   </div>
+ `;
+
+ const container = document.getElementById("container");
+
+ filmes.forEach(filme => {
+   const div = document.createElement("div");
+   div.className = "filme";
+   div.innerHTML = `
+     <img src="${filme.poster}">
+     <h3>${filme.titulo}</h3>
+     <p>${filme.genero}</p>
+     <a href="${filme.trailer}" target="_blank">Trailer</a>
+   `;
+   container.appendChild(div);
+ });
+
+})
+.catch(() => {
+ document.getElementById("container").innerHTML =
+   "<p>Erro ao carregar filmes.</p>";
+});
+</script>
+
+</body>
 </html>
