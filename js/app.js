@@ -31,6 +31,7 @@
       const card = document.createElement('div');
       card.className = "card";
       card.innerHTML = 
+        <img src="" alt="" style="width:100%; border-radius:6px;">
         <h2></h2>
         <p> - </p>
         <a href="" target="_blank">Assistir Trailer</a>
