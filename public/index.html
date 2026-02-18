@@ -5,77 +5,18 @@
 <title>TVAFLIX</title>
 
 <style>
-body { background:#141414; color:white; font-family:Arial; margin:0; }
-
-header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px;
-  background:#141414;
-  position:sticky;
-  top:0;
-}
-
-h1 { color:#E50914; margin:0; }
-
-nav button {
-  margin:0 5px;
-  padding:6px 12px;
-  background:#333;
-  color:white;
-  border:none;
-  cursor:pointer;
-  border-radius:4px;
-  font-weight:bold;
-}
-
-nav button:hover { background:#E50914; }
-
-#banner {
-  height:400px;
-  background-size:cover;
-  background-position:center;
-}
-
-#conteudo {
-  display:flex;
-  flex-wrap:wrap;
-  gap:15px;
-  padding:15px;
-}
-
-.card {
-  width:200px;
-  background:#222;
-  padding:10px;
-  border-radius:6px;
-}
-
-.card img { width:100%; border-radius:5px; }
-
-.card h3 {
-  color:#E50914;
-  margin:5px 0;
-  font-size:16px;
-}
-
-.card p { margin:0; color:#ccc; }
-
-.card a {
-  display:inline-block;
-  margin-top:5px;
-  padding:5px 8px;
-  background:#E50914;
-  color:white;
-  text-decoration:none;
-  border-radius:4px;
-}
-
-.card a:hover {
-  background:white;
-  color:#E50914;
-}
+body{background:#141414;color:white;font-family:Arial;margin:0}
+header{display:flex;justify-content:space-between;align-items:center;padding:10px;background:#141414}
+h1{color:#E50914;margin:0}
+nav button{margin:0 5px;padding:6px 12px;background:#333;color:white;border:none;border-radius:4px;cursor:pointer}
+nav button:hover{background:#E50914}
+#banner{height:350px;background-size:cover;background-position:center}
+#conteudo{display:flex;flex-wrap:wrap;gap:15px;padding:15px}
+.card{width:200px;background:#222;padding:10px;border-radius:6px}
+.card img{width:100%;border-radius:5px}
+.card h3{color:#E50914;margin:5px 0;font-size:16px}
+.card p{margin:0;color:#ccc}
+.card a{display:inline-block;margin-top:5px;padding:5px 8px;background:#E50914;color:white;text-decoration:none;border-radius:4px}
 </style>
 </head>
 
@@ -83,14 +24,10 @@ nav button:hover { background:#E50914; }
 
 <header>
 <h1>TVAFLIX</h1>
-
 <nav>
 <button onclick="carregar('filme')">🎬 Filmes</button>
 <button onclick="carregar('serie')">📺 Séries</button>
-<button onclick="alert('Favoritos em breve')">⭐ Favoritos</button>
-<button onclick="alert('Login em breve')">👤 Login</button>
 </nav>
-
 </header>
 
 <div id="banner"></div>
@@ -98,33 +35,32 @@ nav button:hover { background:#E50914; }
 
 <script>
 async function carregar(tipo=null){
-    const res = await fetch('filmes.json');
-    const dados = await res.json();
+ const res = await fetch('filmes.json');
+ const dados = await res.json();
 
-    const conteudo = document.getElementById("conteudo");
-    const banner = document.getElementById("banner");
+ const conteudo=document.getElementById("conteudo");
+ const banner=document.getElementById("banner");
+ conteudo.innerHTML="";
 
-    conteudo.innerHTML = "";
+ let lista = tipo ? dados.filter(f=>f.tipo===tipo) : dados;
 
-    let lista = tipo ? dados.filter(x=>x.tipo===tipo) : dados;
+ if(lista.length>0){
+   banner.style.backgroundImage="url("+lista[0].poster+")";
+ }
 
-    if(lista.length>0){
-        banner.style.backgroundImage = "url(" + lista[0].poster + ")";
-    }
+ lista.forEach(item=>{
+   const card=document.createElement("div");
+   card.className="card";
 
-    lista.forEach(item=>{
-        const card = document.createElement("div");
-        card.className = "card";
+   card.innerHTML=
+     <img src="">
+     <h3></h3>
+     <p></p>
+     <a href="" target="_blank">▶ Trailer</a>
+   ;
 
-        card.innerHTML = `
-            <img src="${item.poster}">
-            <h3>${item.titulo}</h3>
-            <p>${item.genero}</p>
-            <a href="${item.trailer}" target="_blank">▶ Assistir</a>
-        `;
-
-        conteudo.appendChild(card);
-    });
+   conteudo.appendChild(card);
+ });
 }
 
 carregar();
@@ -132,4 +68,3 @@ carregar();
 
 </body>
 </html>
-
