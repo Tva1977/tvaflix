@@ -45,11 +45,18 @@ async function carregarConteudo(tipoFiltro = null) {
     if(tipoFiltro) lista = data.filter(item => item.tipo === tipoFiltro);
     if(lista.length>0) banner.style.backgroundImage = 'url(' + lista[0].poster + ')';
     lista.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `<img src="${item.poster}" alt="${item.titulo}"><h3>${item.titulo}</h3><p>${item.genero}</p><a href="${item.trailer}" target="_blank">▶ Assistir</a>`;
-        conteudo.appendChild(card);
-    });
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+        <img src="${item.poster}" alt="${item.titulo}">
+        <h3>${item.titulo}</h3>
+        <p>${item.genero}</p>
+        <a href="${item.trailer}" target="_blank">▶ Assistir</a>
+    `;
+
+    conteudo.appendChild(card);
+});
 }
 document.getElementById('btn-filmes').addEventListener('click', ()=> carregarConteudo('filme'));
 document.getElementById('btn-series').addEventListener('click', ()=> carregarConteudo('serie'));
@@ -59,5 +66,6 @@ carregarConteudo();
 </script>
 </body>
 </html>
+
 
 
