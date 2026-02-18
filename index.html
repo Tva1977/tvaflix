@@ -1,71 +1,134 @@
 ﻿<!DOCTYPE html>
-<html lang='pt-br'>
+<html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="css/style.css">
-<meta charset='UTF-8'>
+<meta charset="UTF-8">
 <title>TVAFLIX</title>
+
 <style>
-body { background-color:#141414; color:white; font-family:Arial, sans-serif; margin:0; }
-header { display:flex; justify-content:space-between; align-items:center; padding:10px; background-color:#141414; position:sticky; top:0; z-index:10; }
-header h1 { color:#E50914; margin:0; font-size:24px; }
-nav button { margin:0 5px; padding:5px 12px; background-color:#333; color:white; border:none; cursor:pointer; border-radius:3px; font-weight:bold; }
-nav button:hover { background-color:#E50914; }
-#banner { width:100%; height:400px; background-size:cover; background-position:center; margin-bottom:20px; border-bottom:2px solid #E50914; }
-#conteudo { display:flex; flex-wrap:wrap; gap:15px; padding:0 10px; }
-.card { width:200px; background:#222; padding:10px; border-radius:5px; box-shadow:0 0 5px black; }
+body { background:#141414; color:white; font-family:Arial; margin:0; }
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px;
+  background:#141414;
+  position:sticky;
+  top:0;
+}
+
+h1 { color:#E50914; margin:0; }
+
+nav button {
+  margin:0 5px;
+  padding:6px 12px;
+  background:#333;
+  color:white;
+  border:none;
+  cursor:pointer;
+  border-radius:4px;
+  font-weight:bold;
+}
+
+nav button:hover { background:#E50914; }
+
+#banner {
+  height:400px;
+  background-size:cover;
+  background-position:center;
+}
+
+#conteudo {
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  padding:15px;
+}
+
+.card {
+  width:200px;
+  background:#222;
+  padding:10px;
+  border-radius:6px;
+}
+
 .card img { width:100%; border-radius:5px; }
-.card h3 { color:#E50914; margin:5px 0 0 0; font-size:16px; }
-.card p { margin:2px 0; font-size:14px; color:#ccc; }
-.card a { display:inline-block; margin-top:5px; color:#fff; background:#E50914; padding:5px 8px; border-radius:3px; text-decoration:none; font-weight:bold; }
-.card a:hover { background:#fff; color:#E50914; }
+
+.card h3 {
+  color:#E50914;
+  margin:5px 0;
+  font-size:16px;
+}
+
+.card p { margin:0; color:#ccc; }
+
+.card a {
+  display:inline-block;
+  margin-top:5px;
+  padding:5px 8px;
+  background:#E50914;
+  color:white;
+  text-decoration:none;
+  border-radius:4px;
+}
+
+.card a:hover {
+  background:white;
+  color:#E50914;
+}
 </style>
 </head>
+
 <body>
+
 <header>
-    <link rel="stylesheet" href="css/style.css">
 <h1>TVAFLIX</h1>
+
 <nav>
-<button id='btn-filmes'>Filmes</button>
-<button id='btn-series'>Séries</button>
-<button id='btn-favoritos'>? Favoritos</button>
-<button id='btn-login'>?? Login</button>
+<button onclick="carregar('filme')">🎬 Filmes</button>
+<button onclick="carregar('serie')">📺 Séries</button>
+<button onclick="alert('Favoritos em breve')">⭐ Favoritos</button>
+<button onclick="alert('Login em breve')">👤 Login</button>
 </nav>
+
 </header>
-<div id='banner'></div>
-<div id='conteudo'></div>
+
+<div id="banner"></div>
+<div id="conteudo"></div>
 
 <script>
-async function carregarConteudo(tipoFiltro = null) {
-    const response = await fetch('filmes.json');
-    const data = await response.json();
-    const conteudo = document.getElementById('conteudo');
-    const banner = document.getElementById('banner');
-    conteudo.innerHTML = '';
-    let lista = data;
-    if(tipoFiltro) lista = data.filter(item => item.tipo === tipoFiltro);
-    if(lista.length>0) banner.style.backgroundImage = 'url(' + lista[0].poster + ')';
-    lista.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "card";
+async function carregar(tipo=null){
+    const res = await fetch('filmes.json');
+    const dados = await res.json();
 
-    card.innerHTML = `
-        <img src="${item.poster}" alt="${item.titulo}">
-        <h3>${item.titulo}</h3>
-        <p>${item.genero}</p>
-        <a href="${item.trailer}" target="_blank">▶ Assistir</a>
-    `;
+    const conteudo = document.getElementById("conteudo");
+    const banner = document.getElementById("banner");
 
-    conteudo.appendChild(card);
-});
+    conteudo.innerHTML = "";
+
+    let lista = tipo ? dados.filter(x=>x.tipo===tipo) : dados;
+
+    if(lista.length>0){
+        banner.style.backgroundImage = "url(" + lista[0].poster + ")";
+    }
+
+    lista.forEach(item=>{
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = 
+            <img src="">
+            <h3></h3>
+            <p></p>
+            <a href="" target="_blank">▶ Assistir</a>
+        ;
+
+        conteudo.appendChild(card);
+    });
 }
-document.getElementById('btn-filmes').addEventListener('click', ()=> carregarConteudo('filme'));
-document.getElementById('btn-series').addEventListener('click', ()=> carregarConteudo('serie'));
-document.getElementById('btn-favoritos').addEventListener('click', ()=> alert('Funcionalidade futura!'));
-document.getElementById('btn-login').addEventListener('click', ()=> alert('Funcionalidade futura!'));
-carregarConteudo();
+
+carregar();
 </script>
+
 </body>
 </html>
-
-
-
