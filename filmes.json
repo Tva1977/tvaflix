@@ -4,7 +4,8 @@
         "genero":  "Ação",
         "tipo":  "filme",
         "poster":  "https://upload.wikimedia.org/wikipedia/commons/8/89/Placeholder.jpg",
-        "trailer":  "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        "trailer":  "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "video":  "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     },
     {
         "titulo":  "Filme Teste 2",

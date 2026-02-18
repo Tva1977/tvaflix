@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang='pt-br'>
 <head>
     <link rel="stylesheet" href="css/style.css">
@@ -26,9 +26,9 @@ nav button:hover { background-color:#E50914; }
 <h1>TVAFLIX</h1>
 <nav>
 <button id='btn-filmes'>Filmes</button>
-<button id='btn-series'>Séries</button>
-<button id='btn-favoritos'>⭐ Favoritos</button>
-<button id='btn-login'>👤 Login</button>
+<button id='btn-series'>S�ries</button>
+<button id='btn-favoritos'>? Favoritos</button>
+<button id='btn-login'>?? Login</button>
 </nav>
 </header>
 <div id='banner'></div>
@@ -47,7 +47,7 @@ async function carregarConteudo(tipoFiltro = null) {
     lista.forEach(item => {
         const card = document.createElement('div');
         card.className = 'card';
-        card.innerHTML = <img src="\" alt="\"><h3>\</h3><p>\</p><a href="\" >▶ Assistir</a>;
+        card.innerHTML = <img src="\" alt="\"><h3>\</h3><p>\</p><a href="\" >? Assistir</a>;
         conteudo.appendChild(card);
     });
 }
