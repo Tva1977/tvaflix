@@ -1,46 +1,134 @@
 ﻿<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TVAFLIX</title>
+
 <style>
-    body { font-family: Arial, sans-serif; background: #111; color: #fff; margin: 0; padding: 0; }
-    h1 { text-align: center; margin-top: 20px; color: #e50914; font-size: 48px; letter-spacing: 5px; }
-    .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; gap: 20px; }
-    .filme { background: #222; padding: 10px; border-radius: 8px; width: 200px; text-align: center; }
-    .filme img { width: 100%; border-radius: 5px; }
-    .filme h2 { font-size: 18px; margin: 10px 0 5px 0; }
-    .filme p { margin: 0 0 10px 0; font-size: 14px; }
-    .filme a { display: inline-block; padding: 5px 10px; background: #e50914; color: #fff; text-decoration: none; border-radius: 5px; }
-    .filme a:hover { background: #b10610; }
+body { background:#141414; color:white; font-family:Arial; margin:0; }
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px;
+  background:#141414;
+  position:sticky;
+  top:0;
+}
+
+h1 { color:#E50914; margin:0; }
+
+nav button {
+  margin:0 5px;
+  padding:6px 12px;
+  background:#333;
+  color:white;
+  border:none;
+  cursor:pointer;
+  border-radius:4px;
+  font-weight:bold;
+}
+
+nav button:hover { background:#E50914; }
+
+#banner {
+  height:400px;
+  background-size:cover;
+  background-position:center;
+}
+
+#conteudo {
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  padding:15px;
+}
+
+.card {
+  width:200px;
+  background:#222;
+  padding:10px;
+  border-radius:6px;
+}
+
+.card img { width:100%; border-radius:5px; }
+
+.card h3 {
+  color:#E50914;
+  margin:5px 0;
+  font-size:16px;
+}
+
+.card p { margin:0; color:#ccc; }
+
+.card a {
+  display:inline-block;
+  margin-top:5px;
+  padding:5px 8px;
+  background:#E50914;
+  color:white;
+  text-decoration:none;
+  border-radius:4px;
+}
+
+.card a:hover {
+  background:white;
+  color:#E50914;
+}
 </style>
 </head>
+
 <body>
+
+<header>
 <h1>TVAFLIX</h1>
-<div class="container" id="container"></div>
+
+<nav>
+<button onclick="carregar('filme')">🎬 Filmes</button>
+<button onclick="carregar('serie')">📺 Séries</button>
+<button onclick="alert('Favoritos em breve')">⭐ Favoritos</button>
+<button onclick="alert('Login em breve')">👤 Login</button>
+</nav>
+
+</header>
+
+<div id="banner"></div>
+<div id="conteudo"></div>
+
 <script>
-fetch('filmes.json')
-.then(response => response.json())
-.then(filmes => {
-    const container = document.getElementById('container');
-    filmes.forEach(filme => {
-        const div = document.createElement('div');
-        div.className = 'filme';
-        div.innerHTML = `
-            <img src="${filme.poster}" alt="${filme.titulo}">
-            <h2>${filme.titulo}</h2>
-            <p>${filme.genero} - ${filme.tipo}</p>
-            <a href="${filme.trailer}" target="_blank">Assistir Trailer</a>
-        `;
-        container.appendChild(div);
+async function carregar(tipo=null){
+    const res = await fetch('filmes.json');
+    const dados = await res.json();
+
+    const conteudo = document.getElementById("conteudo");
+    const banner = document.getElementById("banner");
+
+    conteudo.innerHTML = "";
+
+    let lista = tipo ? dados.filter(x=>x.tipo===tipo) : dados;
+
+    if(lista.length>0){
+        banner.style.backgroundImage = "url(" + lista[0].poster + ")";
+    }
+
+    lista.forEach(item=>{
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = 
+            <img src="">
+            <h3></h3>
+            <p></p>
+            <a href="" target="_blank">▶ Assistir</a>
+        ;
+
+        conteudo.appendChild(card);
     });
-})
-.catch(err => {
-    const container = document.getElementById('container');
-    container.innerHTML = '<p>Não foi possível carregar os filmes.</p>';
-    console.error(err);
-});
+}
+
+carregar();
 </script>
+
 </body>
 </html>
