@@ -1,56 +1,20 @@
 ﻿[
-  {
-    "id": 1,
-    "titulo": "Ação Extrema",
-    "tipo": "filme",
-    "genero": "Ação",
-    "ano": 2024,
-    "descricao": "Um filme de ação eletrizante.",
-    "poster": "https://via.placeholder.com/300x450",
-    "video": "https://www.w3schools.com/html/mov_bbb.mp4"
-  },
-  {
-    "id": 2,
-    "titulo": "Drama Profundo",
-    "tipo": "filme",
-    "genero": "Drama",
-    "ano": 2023,
-    "descricao": "Uma história emocionante.",
-    "poster": "https://via.placeholder.com/300x450",
-    "video": "https://www.w3schools.com/html/movie.mp4"
-  },
-  {
-    "id": 3,
-    "titulo": "Mistério Oculto",
-    "tipo": "filme",
-    "genero": "Suspense",
-    "ano": 2022,
-    "descricao": "Um suspense cheio de reviravoltas.",
-    "poster": "https://via.placeholder.com/300x450",
-    "video": "https://www.w3schools.com/html/mov_bbb.mp4"
-  },
-  {
-    "id": 4,
-    "titulo": "Série Alpha",
-    "tipo": "serie",
-    "genero": "Ficção",
-    "ano": 2024,
-    "descricao": "Uma série futurista cheia de mistérios.",
-    "poster": "https://via.placeholder.com/300x450",
-    "temporadas": [
-      {
-        "temporada": 1,
-        "episodios": [
-          {
-            "titulo": "Episódio 1 - O Começo",
-            "video": "https://www.w3schools.com/html/mov_bbb.mp4"
-          },
-          {
-            "titulo": "Episódio 2 - A Revelação",
-            "video": "https://www.w3schools.com/html/movie.mp4"
-          }
-        ]
-      }
-    ]
-  }
+    {
+        'id': 1,
+        'titulo': 'Filme Teste 1',
+        'genero': 'Ação',
+        'tipo': 'filme',
+        'poster': 'https://via.placeholder.com/200x300',
+        'video': ''
+    },
+    {
+        'id': 2,
+        'titulo': 'Série Teste 1',
+        'genero': 'Drama',
+        'tipo': 'serie',
+        'poster': 'https://via.placeholder.com/200x300',
+        'temporadas': 1,
+        'episodios': 10,
+        'video': ''
+    }
 ]
