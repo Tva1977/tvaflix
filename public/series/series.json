@@ -1,0 +1,16 @@
+﻿[
+    {
+        'id': 's1',
+        'titulo': 'Serie Teste A',
+        'genero': 'Aventura',
+        'temporadas': [
+            {
+                'numero': 1,
+                'episodios': [
+                    {'id':'s1e1','titulo':'Episódio 1','video':'URL_DO_VIDEO1.mp4'},
+                    {'id':'s1e2','titulo':'Episódio 2','video':'URL_DO_VIDEO2.mp4'}
+                ]
+            }
+        ]
+    }
+]

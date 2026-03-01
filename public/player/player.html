@@ -1,0 +1,13 @@
+﻿<div id='player-container'>
+    <video id='video-player' width='100%' controls>
+        <source src='' type='video/mp4'>
+        Seu navegador não suporta o player de vídeo.
+    </video>
+</div>
+<script>
+function playVideo(url){
+    const player = document.getElementById('video-player');
+    player.src = url;
+    player.play();
+}
+</script>
