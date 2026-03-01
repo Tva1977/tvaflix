@@ -1,11 +1,25 @@
-﻿const filmes=JSON.parse(fetch('filmes.json').then(r=>r.text()));
-const series=JSON.parse(fetch('series/series.json').then(r=>r.text()));
+﻿async function fetchJSON(url){ return JSON.parse(await (await fetch(url)).text()); }
 
-async function carregar(){
-    const f=await filmes, s=await series;
-    const filmesDiv=document.getElementById('filmes');
-    const seriesDiv=document.getElementById('series');
-    f.forEach(fm=>filmesDiv.innerHTML+=<div><img src='\'><p>\</p><button onclick=\"window.open('player/player.html?video=\')\">Assistir</button></div>);
-    s.forEach(sr=>seriesDiv.innerHTML+=<div><img src='\'><p>\</p><button onclick=\"window.open('player/player.html?video=public/series/\.mp4')\">Assistir</button></div>);
+async function carregarTudo(){
+    const filmes=await fetchJSON('filmes.json');
+    const series=await fetchJSON('series/series.json');
+    const desenhos=await fetchJSON('desenhos/desenhos.json');
+    const infantil=await fetchJSON('infantil/infantil.json');
+    const documentarios=await fetchJSON('documentarios/documentarios.json');
+
+    const render = (arr,id,prefix='')=>{
+        const container=document.getElementById(id);
+        arr.forEach(el=>{
+            container.innerHTML+=<div><img src='\'><p>\</p>
+            <button onclick="window.open('player/player.html?video=\\.mp4')">Assistir</button></div>;
+        });
+    }
+
+    render(filmes,'filmes');
+    render(series,'series');
+    render(desenhos,'desenhos','desenhos/');
+    render(infantil,'infantil','infantil/');
+    render(documentarios,'documentarios','documentarios/');
 }
-carregar();
+
+carregarTudo();

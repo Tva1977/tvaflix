@@ -1,0 +1,7 @@
+﻿[
+    {"id":"inf1","titulo":"Infantil 1","capa":"public/infantil/capa1.jpg"},
+    {"id":"inf2","titulo":"Infantil 2","capa":"public/infantil/capa2.jpg"},
+    {"id":"inf3","titulo":"Infantil 3","capa":"public/infantil/capa3.jpg"},
+    {"id":"inf4","titulo":"Infantil 4","capa":"public/infantil/capa4.jpg"},
+    {"id":"inf5","titulo":"Infantil 5","capa":"public/infantil/capa5.jpg"}
+]

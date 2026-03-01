@@ -1,0 +1,7 @@
+﻿[
+    {"id":"desenho1","titulo":"Desenho 1","capa":"public/desenhos/capa1.jpg"},
+    {"id":"desenho2","titulo":"Desenho 2","capa":"public/desenhos/capa2.jpg"},
+    {"id":"desenho3","titulo":"Desenho 3","capa":"public/desenhos/capa3.jpg"},
+    {"id":"desenho4","titulo":"Desenho 4","capa":"public/desenhos/capa4.jpg"},
+    {"id":"desenho5","titulo":"Desenho 5","capa":"public/desenhos/capa5.jpg"}
+]
