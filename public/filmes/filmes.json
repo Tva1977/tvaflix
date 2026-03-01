@@ -1,0 +1,32 @@
+﻿[
+    {
+        "capa":  "public/filmes/capa1.jpg",
+        "arquivo":  "public/filmes/filmes1.mp4",
+        "titulo":  "filmes Teste 1",
+        "id":  "filmes1"
+    },
+    {
+        "capa":  "public/filmes/capa2.jpg",
+        "arquivo":  "public/filmes/filmes2.mp4",
+        "titulo":  "filmes Teste 2",
+        "id":  "filmes2"
+    },
+    {
+        "capa":  "public/filmes/capa3.jpg",
+        "arquivo":  "public/filmes/filmes3.mp4",
+        "titulo":  "filmes Teste 3",
+        "id":  "filmes3"
+    },
+    {
+        "capa":  "public/filmes/capa4.jpg",
+        "arquivo":  "public/filmes/filmes4.mp4",
+        "titulo":  "filmes Teste 4",
+        "id":  "filmes4"
+    },
+    {
+        "capa":  "public/filmes/capa5.jpg",
+        "arquivo":  "public/filmes/filmes5.mp4",
+        "titulo":  "filmes Teste 5",
+        "id":  "filmes5"
+    }
+]

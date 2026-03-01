@@ -1,7 +1,32 @@
 ﻿[
-    {"id":"inf1","titulo":"Infantil 1","capa":"public/infantil/capa1.jpg"},
-    {"id":"inf2","titulo":"Infantil 2","capa":"public/infantil/capa2.jpg"},
-    {"id":"inf3","titulo":"Infantil 3","capa":"public/infantil/capa3.jpg"},
-    {"id":"inf4","titulo":"Infantil 4","capa":"public/infantil/capa4.jpg"},
-    {"id":"inf5","titulo":"Infantil 5","capa":"public/infantil/capa5.jpg"}
+    {
+        "capa":  "public/infantil/capa1.jpg",
+        "arquivo":  "public/infantil/infantil1.mp4",
+        "titulo":  "infantil Teste 1",
+        "id":  "infantil1"
+    },
+    {
+        "capa":  "public/infantil/capa2.jpg",
+        "arquivo":  "public/infantil/infantil2.mp4",
+        "titulo":  "infantil Teste 2",
+        "id":  "infantil2"
+    },
+    {
+        "capa":  "public/infantil/capa3.jpg",
+        "arquivo":  "public/infantil/infantil3.mp4",
+        "titulo":  "infantil Teste 3",
+        "id":  "infantil3"
+    },
+    {
+        "capa":  "public/infantil/capa4.jpg",
+        "arquivo":  "public/infantil/infantil4.mp4",
+        "titulo":  "infantil Teste 4",
+        "id":  "infantil4"
+    },
+    {
+        "capa":  "public/infantil/capa5.jpg",
+        "arquivo":  "public/infantil/infantil5.mp4",
+        "titulo":  "infantil Teste 5",
+        "id":  "infantil5"
+    }
 ]

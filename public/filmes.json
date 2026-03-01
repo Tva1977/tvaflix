@@ -1,7 +1,0 @@
-﻿[
-  {"id":"filme1","titulo":"Filme Teste 1","capa":"public/filmes/capa1.jpg","arquivo":"public/filmes/filme1.mp4"},
-  {"id":"filme2","titulo":"Filme Teste 2","capa":"public/filmes/capa2.jpg","arquivo":"public/filmes/filme2.mp4"},
-  {"id":"filme3","titulo":"Filme Teste 3","capa":"public/filmes/capa3.jpg","arquivo":"public/filmes/filme3.mp4"},
-  {"id":"filme4","titulo":"Filme Teste 4","capa":"public/filmes/capa4.jpg","arquivo":"public/filmes/filme4.mp4"},
-  {"id":"filme5","titulo":"Filme Teste 5","capa":"public/filmes/capa5.jpg","arquivo":"public/filmes/filme5.mp4"}
-]

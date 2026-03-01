@@ -1,7 +1,32 @@
 ﻿[
-  {"id":"serieA","titulo":"Serie Teste A","capa":"public/series/capaA.jpg","arquivo":"public/series/serieA.mp4"},
-  {"id":"serieB","titulo":"Serie Teste B","capa":"public/series/capaB.jpg","arquivo":"public/series/serieB.mp4"},
-  {"id":"serieC","titulo":"Serie Teste C","capa":"public/series/capaC.jpg","arquivo":"public/series/serieC.mp4"},
-  {"id":"serieD","titulo":"Serie Teste D","capa":"public/series/capaD.jpg","arquivo":"public/series/serieD.mp4"},
-  {"id":"serieE","titulo":"Serie Teste E","capa":"public/series/capaE.jpg","arquivo":"public/series/serieE.mp4"}
+    {
+        "capa":  "public/series/capa1.jpg",
+        "arquivo":  "public/series/series1.mp4",
+        "titulo":  "series Teste 1",
+        "id":  "series1"
+    },
+    {
+        "capa":  "public/series/capa2.jpg",
+        "arquivo":  "public/series/series2.mp4",
+        "titulo":  "series Teste 2",
+        "id":  "series2"
+    },
+    {
+        "capa":  "public/series/capa3.jpg",
+        "arquivo":  "public/series/series3.mp4",
+        "titulo":  "series Teste 3",
+        "id":  "series3"
+    },
+    {
+        "capa":  "public/series/capa4.jpg",
+        "arquivo":  "public/series/series4.mp4",
+        "titulo":  "series Teste 4",
+        "id":  "series4"
+    },
+    {
+        "capa":  "public/series/capa5.jpg",
+        "arquivo":  "public/series/series5.mp4",
+        "titulo":  "series Teste 5",
+        "id":  "series5"
+    }
 ]

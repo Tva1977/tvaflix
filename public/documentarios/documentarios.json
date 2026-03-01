@@ -1,7 +1,32 @@
 ﻿[
-    {"id":"doc1","titulo":"Documentário 1","capa":"public/documentarios/capa1.jpg"},
-    {"id":"doc2","titulo":"Documentário 2","capa":"public/documentarios/capa2.jpg"},
-    {"id":"doc3","titulo":"Documentário 3","capa":"public/documentarios/capa3.jpg"},
-    {"id":"doc4","titulo":"Documentário 4","capa":"public/documentarios/capa4.jpg"},
-    {"id":"doc5","titulo":"Documentário 5","capa":"public/documentarios/capa5.jpg"}
+    {
+        "capa":  "public/documentarios/capa1.jpg",
+        "arquivo":  "public/documentarios/documentarios1.mp4",
+        "titulo":  "documentarios Teste 1",
+        "id":  "documentarios1"
+    },
+    {
+        "capa":  "public/documentarios/capa2.jpg",
+        "arquivo":  "public/documentarios/documentarios2.mp4",
+        "titulo":  "documentarios Teste 2",
+        "id":  "documentarios2"
+    },
+    {
+        "capa":  "public/documentarios/capa3.jpg",
+        "arquivo":  "public/documentarios/documentarios3.mp4",
+        "titulo":  "documentarios Teste 3",
+        "id":  "documentarios3"
+    },
+    {
+        "capa":  "public/documentarios/capa4.jpg",
+        "arquivo":  "public/documentarios/documentarios4.mp4",
+        "titulo":  "documentarios Teste 4",
+        "id":  "documentarios4"
+    },
+    {
+        "capa":  "public/documentarios/capa5.jpg",
+        "arquivo":  "public/documentarios/documentarios5.mp4",
+        "titulo":  "documentarios Teste 5",
+        "id":  "documentarios5"
+    }
 ]

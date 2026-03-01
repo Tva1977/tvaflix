@@ -1,6 +1,0 @@
-﻿body{background:#121212;color:#fff;font-family:Arial,sans-serif;margin:0;padding:20px;}
-h1{color:#00ffea;}
-h2{margin-top:30px;color:#ffaa00;}
-#filmes, #series{display:flex;gap:15px;flex-wrap:wrap;}
-#filmes div,#series div{width:180px;background:#1e1e1e;padding:10px;border-radius:8px;text-align:center;}
-#filmes img,#series img{width:100%;border-radius:5px;}
