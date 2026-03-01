@@ -1,3 +1,7 @@
 ﻿[
-    {""id"": ""serieA"", ""titulo"": ""Serie Teste A"", ""capa"": ""public/series/capaA.jpg""}
+    {"id":"serieA","titulo":"Série A","capa":"public/series/capaA.jpg"},
+    {"id":"serieB","titulo":"Série B","capa":"public/series/capaB.jpg"},
+    {"id":"serieC","titulo":"Série C","capa":"public/series/capaC.jpg"},
+    {"id":"serieD","titulo":"Série D","capa":"public/series/capaD.jpg"},
+    {"id":"serieE","titulo":"Série E","capa":"public/series/capaE.jpg"}
 ]

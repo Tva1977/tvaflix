@@ -1,26 +1,11 @@
-﻿const catalogo = document.getElementById('catalogo');
-const btnFilmes = document.getElementById('btn-filmes');
-const btnSeries = document.getElementById('btn-series');
+﻿const filmes=JSON.parse(fetch('filmes.json').then(r=>r.text()));
+const series=JSON.parse(fetch('series/series.json').then(r=>r.text()));
 
-async function carregarCatalogo(tipo=null) {
-    const res = await fetch('filmes.json');
-    const data = await res.json();
-    catalogo.innerHTML = '';
-    let itens = data;
-    if(tipo) itens = data.filter(x => x.tipo === tipo);
-    itens.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'catalogo-item';
-        div.innerHTML = \
-            <img src='\' alt='\'>
-            <h3>\</h3>
-            <p>\</p>
-        \;
-        catalogo.appendChild(div);
-    });
+async function carregar(){
+    const f=await filmes, s=await series;
+    const filmesDiv=document.getElementById('filmes');
+    const seriesDiv=document.getElementById('series');
+    f.forEach(fm=>filmesDiv.innerHTML+=<div><img src='\'><p>\</p><button onclick=\"window.open('player/player.html?video=\')\">Assistir</button></div>);
+    s.forEach(sr=>seriesDiv.innerHTML+=<div><img src='\'><p>\</p><button onclick=\"window.open('player/player.html?video=public/series/\.mp4')\">Assistir</button></div>);
 }
-
-btnFilmes.addEventListener('click', () => carregarCatalogo('filme'));
-btnSeries.addEventListener('click', () => carregarCatalogo('serie'));
-
-carregarCatalogo(); // inicial
+carregar();
