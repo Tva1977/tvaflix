@@ -1,20 +1,3 @@
 ﻿[
-    {
-        'id': 1,
-        'titulo': 'Filme Teste 1',
-        'genero': 'Ação',
-        'tipo': 'filme',
-        'poster': 'https://via.placeholder.com/200x300',
-        'video': ''
-    },
-    {
-        'id': 2,
-        'titulo': 'Série Teste 1',
-        'genero': 'Drama',
-        'tipo': 'serie',
-        'poster': 'https://via.placeholder.com/200x300',
-        'temporadas': 1,
-        'episodios': 10,
-        'video': ''
-    }
+    {""titulo"": ""Filme Teste 1"", ""capa"": ""public/filmes/capa1.jpg"", ""arquivo"": ""public/filmes/filme1.mp4""}
 ]

@@ -1,6 +1,14 @@
-﻿body { margin:0; font-family: Arial, sans-serif; background-color: #121212; color: #fff; }
-header { display:flex; justify-content: space-between; padding:1rem; background:#1f1f1f; }
-nav button { margin-left:1rem; padding:0.5rem 1rem; cursor:pointer; background:#ff0000; border:none; color:#fff; border-radius:5px; }
-#catalogo { display:grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap:1rem; padding:1rem; }
-.catalogo-item { background:#222; padding:0.5rem; border-radius:5px; }
-.catalogo-item img { width:100%; border-radius:5px; }
+﻿body {
+    background: #0d0d0d;
+    color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    margin: 0; padding: 0;
+}
+h1,h2{text-align:center;color:#00ffea;}
+.filmes, .series { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin:20px; }
+.card { background:#1a1a1a; border-radius:10px; padding:15px; width:200px; transition:transform 0.2s;}
+.card:hover{ transform: scale(1.05); }
+.card img{ width:100%; border-radius:5px; }
+.card h3{ margin:10px 0; font-size:1.1em; color:#00ffea;}
+.card button{ background:#00ffea; color:#0d0d0d; border:none; padding:8px; border-radius:5px; cursor:pointer;}
+.card button:hover{ background:#00d6c2;}
