@@ -4,24 +4,46 @@
 <meta charset='UTF-8'>
 <title>TVAFLIX 2026</title>
 <link rel='stylesheet' href='css/style.css'>
+<style>
+body { background:#141414; color:white; font-family: 'Arial', sans-serif; margin:0; padding:0; }
+h1 { text-align:center; margin:20px 0; }
+h2 { margin: 20px; }
+.section { margin:20px; }
+.carousel { display:flex; overflow-x:auto; gap:10px; padding:10px; }
+.carousel::-webkit-scrollbar { display:none; }
+.item { flex:0 0 auto; width:200px; cursor:pointer; }
+.item img { width:100%; border-radius:6px; }
+.item p { text-align:center; margin:5px 0; font-size:14px; }
+button { display:block; margin:5px auto; padding:5px 10px; background:red; border:none; color:white; border-radius:4px; cursor:pointer; }
+</style>
 </head>
 <body>
 <h1>TVAFLIX 2026</h1>
 
+<div class='section'>
 <h2>Filmes</h2>
-<div id='filmes'></div>
+<div id='filmes' class='carousel'></div>
+</div>
 
+<div class='section'>
 <h2>Séries</h2>
-<div id='series'></div>
+<div id='series' class='carousel'></div>
+</div>
 
+<div class='section'>
 <h2>Desenhos</h2>
-<div id='desenhos'></div>
+<div id='desenhos' class='carousel'></div>
+</div>
 
+<div class='section'>
 <h2>Infantil</h2>
-<div id='infantil'></div>
+<div id='infantil' class='carousel'></div>
+</div>
 
+<div class='section'>
 <h2>Documentários</h2>
-<div id='documentarios'></div>
+<div id='documentarios' class='carousel'></div>
+</div>
 
 <script src='js/app.js'></script>
 </body>
